@@ -105,28 +105,49 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\final code (advanced)\game.c" />
-    <ClCompile Include="..\final code (advanced)\main.c" />
-    <ClCompile Include="..\final code (advanced)\scene_menu.c" />
-    <ClCompile Include="..\final code (advanced)\scene_settings.c" />
-    <ClCompile Include="..\final code (advanced)\scene_start.c" />
-    <ClCompile Include="..\final code (advanced)\shared.c" />
-    <ClCompile Include="..\final code (advanced)\utility.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\final code (advanced)\game.h" />
-    <ClInclude Include="..\final code (advanced)\scene_menu.h" />
-    <ClInclude Include="..\final code (advanced)\scene_settings.h" />
-    <ClInclude Include="..\final code (advanced)\scene_start.h" />
-    <ClInclude Include="..\final code (advanced)\shared.h" />
-    <ClInclude Include="..\final code (advanced)\utility.h" />
-    <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
+    <None Include="resources\mythica.ogg" />
+    <None Include="resources\S31-Night Prowler.ogg" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MyGame.rc" />
+    <ClCompile Include="Final Code (advanced)\game.c" />
+    <ClCompile Include="Final Code (advanced)\main.c" />
+    <ClCompile Include="Final Code (advanced)\scene_menu.c" />
+    <ClCompile Include="Final Code (advanced)\scene_settings.c" />
+    <ClCompile Include="Final Code (advanced)\scene_start.c" />
+    <ClCompile Include="Final Code (advanced)\shared.c" />
+    <ClCompile Include="Final Code (advanced)\utility.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Final Code (advanced)\game.h" />
+    <ClInclude Include="Final Code (advanced)\scene_menu.h" />
+    <ClInclude Include="Final Code (advanced)\scene_settings.h" />
+    <ClInclude Include="Final Code (advanced)\scene_start.h" />
+    <ClInclude Include="Final Code (advanced)\shared.h" />
+    <ClInclude Include="Final Code (advanced)\utility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\crosshair052.png" />
+    <Image Include="resources\crosshair146.png" />
+    <Image Include="resources\image12.png" />
+    <Image Include="resources\main-bg.jpg" />
+    <Image Include="resources\plane.png" />
+    <Image Include="resources\rocket-1.png" />
+    <Image Include="resources\rocket-2.png" />
+    <Image Include="resources\rocket-3.png" />
+    <Image Include="resources\rocket-4.png" />
+    <Image Include="resources\settings.png" />
+    <Image Include="resources\settings2.png" />
+    <Image Include="resources\smallfighter0006.png" />
+    <Image Include="resources\start-bg.jpg" />
+    <Image Include="resources\tank-1.png" />
+    <Image Include="resources\towerDefense_tile252.png" />
+    <Image Include="resources\ufo-1.png" />
+    <Image Include="resources\ufo-2.png" />
+    <Image Include="resources\ufo-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\pirulen.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

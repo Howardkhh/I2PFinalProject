@@ -15,57 +15,116 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\final code (advanced)\game.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\final code (advanced)\main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\final code (advanced)\scene_menu.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\final code (advanced)\scene_settings.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\final code (advanced)\scene_start.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\final code (advanced)\shared.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\final code (advanced)\utility.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\final code (advanced)\game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\final code (advanced)\scene_menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\final code (advanced)\scene_settings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\final code (advanced)\scene_start.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\final code (advanced)\shared.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\final code (advanced)\utility.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
+    <None Include="resources\mythica.ogg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\S31-Night Prowler.ogg">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MyGame.rc">
+    <ClCompile Include="Final Code (advanced)\game.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Final Code (advanced)\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Final Code (advanced)\scene_menu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Final Code (advanced)\scene_settings.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Final Code (advanced)\scene_start.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Final Code (advanced)\shared.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Final Code (advanced)\utility.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Final Code (advanced)\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Final Code (advanced)\scene_menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Final Code (advanced)\scene_settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Final Code (advanced)\scene_start.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Final Code (advanced)\shared.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Final Code (advanced)\utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\crosshair052.png">
       <Filter>Resource Files</Filter>
-    </ResourceCompile>
+    </Image>
+    <Image Include="resources\crosshair146.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\image12.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\main-bg.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\plane.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\rocket-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\rocket-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\rocket-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\rocket-4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\settings.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\settings2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\smallfighter0006.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\start-bg.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\tank-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\towerDefense_tile252.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\ufo-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\ufo-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\ufo-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\pirulen.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>
