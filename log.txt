@@ -1,0 +1,56 @@
+There are total 2 supported mouse buttons
+Allegro5 initialized
+Game begin
+loaded font: pirulen.ttf with size 32
+loaded font: pirulen.ttf with size 24
+Menu scene created
+Change scene from (unnamed) to Menu
+loaded image: main-bg.jpg
+resized image: main-bg.jpg
+loaded image: settings.png
+loaded image: settings2.png
+loaded audio: S31-Night Prowler.ogg
+played audio (bgm)
+Menu scene initialized
+Game initialized
+Game start event loop
+Key with keycode 67 down
+Start scene created
+Change scene from Menu to Start
+stop audio (bgm)
+Menu scene destroyed
+loaded image: start-bg.jpg
+resized image: start-bg.jpg
+loaded image: plane.png
+loaded image: smallfighter.png
+loaded image: smallfighter_broken1.png
+loaded image: smallfighter_broken2.png
+loaded image: image12.png
+loaded audio: mythica.ogg
+Start scene initialized
+played audio (bgm)
+Key with keycode 67 up
+Key with keycode 83 down
+Key with keycode 75 down
+Key with keycode 83 up
+Key with keycode 85 down
+Key with keycode 85 up
+Key with keycode 82 down
+Key with keycode 82 up
+Key with keycode 82 down
+Key with keycode 82 up
+Key with keycode 75 up
+Key with keycode 75 down
+Key with keycode 83 down
+Key with keycode 83 up
+Key with keycode 82 down
+Key with keycode 82 up
+Key with keycode 83 down
+Key with keycode 83 up
+Key with keycode 82 down
+Key with keycode 82 up
+Key with keycode 83 down
+Key with keycode 83 up
+Key with keycode 82 down
+Key with keycode 82 up
+Key with keycode 75 up
