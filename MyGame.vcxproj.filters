@@ -15,13 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="resources\mythica.ogg">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\S31-Night Prowler.ogg">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Final Code (advanced)\game.c">

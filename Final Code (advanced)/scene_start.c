@@ -109,10 +109,17 @@ static void init_plane(Player* player) {
 
 
 static void init_enemy(Enemy* enemy, int type) {
+    //type 0: small fighter, 1:mid fighter
+    switch (type) {
+    case 0:
+        enemy->obj.img[0] = img_small_fighter;
+        enemy->obj.img[1] = img_small_fighter_broken1;
+        enemy->obj.img[2] = img_small_fighter_broken2;
+        enemy->max_health = 3;
+        break;
+    }
+
     enemy->type = type;
-    enemy->obj.img[0] = img_small_fighter;
-    enemy->obj.img[1] = img_small_fighter_broken1;
-    enemy->obj.img[2] = img_small_fighter_broken2;
     enemy->obj.w = al_get_bitmap_width(enemy->obj.img[0]);
     enemy->obj.h = al_get_bitmap_height(enemy->obj.img[0]);
     enemy->obj.x = enemy->obj.w / 2 + (float)rand() / RAND_MAX * (SCREEN_W - enemy->obj.w);
@@ -120,14 +127,18 @@ static void init_enemy(Enemy* enemy, int type) {
     enemy->obj.vx = 0;
     enemy->obj.vy = 1;
     enemy->obj.hidden = true;
-    enemy->max_health = 3;
     enemy->health = enemy->max_health;
 
 }
 
 static void init_bullet(Bullet* bullet, int type) {
+    //type 1: normal bullets, 2: mid fighter bullets
+    switch (type) {
+    case 0:
+        bullet->obj.img[0] = img_bullet;
+        break;
+    }
     bullet->type = type;
-    bullet->obj.img[0] = img_bullet;
     bullet->obj.w = al_get_bitmap_width(img_bullet);
     bullet->obj.h = al_get_bitmap_height(img_bullet);
     bullet->obj.vx = 0;
