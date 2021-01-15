@@ -146,16 +146,76 @@ static void init_bullet(Bullet* bullet, int type) {
     bullet->obj.hidden = true;
 }
 
+int collision_detect(MovableObject obj1, MovableObject obj2) {
+    if ((obj1.x - obj1.w / 2 >= obj2.x - obj2.w / 2 && obj1.x - obj1.w / 2 <= obj2.x + obj1.w / 2  ||
+         obj1.x + obj1.w / 2 >= obj2.x - obj2.w / 2 && obj1.x + obj1.w / 2 <= obj2.x + obj2.w / 2) &&
+        (obj1.y - obj1.h / 2 >= obj2.y - obj2.h / 2 && obj1.y - obj1.h / 2 <= obj2.y + obj2.h / 2  ||
+         obj1.y + obj1.h / 2 >= obj2.y - obj2.h / 2 && obj1.y + obj1.h / 2 <= obj2.y + obj2.h / 2)) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+
+//restrict_in_LRUD: 0:check boundaries, 1: don't check boundaries, 2: go out then hidden
+void move_object(MovableObject* obj, float dx, float dy, int* restrict_in_LRUD) {
+    obj->x += dx;
+    obj->y += dy;
+
+    if (restrict_in_LRUD[0] == 0) {
+        if (obj->x - obj->w / 2 < 0)
+            obj->x = obj->w / 2;
+    }
+    else if (restrict_in_LRUD[0] == 1);
+    else if (restrict_in_LRUD[0] == 2){
+        if (obj->x + obj->w / 2 < 0) {
+            obj->hidden = true;
+           return;
+        }
+    }
+    if (restrict_in_LRUD[1] == 0) {
+        if (obj->x + obj->w / 2 > SCREEN_W)
+            obj->x = SCREEN_W - obj->w / 2;
+    }
+    else if (restrict_in_LRUD[1] == 1);
+    else if (restrict_in_LRUD[1] == 2) {
+        if (obj->x - obj->w / 2 > SCREEN_W) {
+            obj->hidden = true;
+            return;
+        }
+    }
+    if (restrict_in_LRUD[2] == 0) {
+        if (obj->y - obj->h / 2 < 0) 
+            obj->y = obj->h / 2;
+    }
+    else if (restrict_in_LRUD[2] == 1);
+    else if (restrict_in_LRUD[2] == 2) {
+        if (obj->y + obj->h / 2 < 0) {
+            obj->hidden = true;
+            return;
+        }
+    }
+    if (restrict_in_LRUD[3] == 0) {
+        if (obj->y + obj->h / 2 > SCREEN_H)
+            obj->y = SCREEN_H - obj->h / 2;
+    }
+    else if (restrict_in_LRUD[3] == 1);
+    else if (restrict_in_LRUD[3] == 2) {
+        if (obj->y - obj->h / 2 > SCREEN_H) {
+            obj->hidden = true;
+            return;
+        }
+    }
+    return;
+}
 
 
 static void update(void) {
     for (int i = 0; i < MAX_ENEMY; i++) {
         if (enemies[i].obj.hidden)
             continue;
-        if ((plane.obj.x - plane.obj.w / 2 >= enemies[i].obj.x - enemies[i].obj.w / 2 && plane.obj.x - plane.obj.w / 2 <= enemies[i].obj.x + enemies[i].obj.w / 2 ||
-            plane.obj.x + plane.obj.w / 2 >= enemies[i].obj.x - enemies[i].obj.w / 2 && plane.obj.x + plane.obj.w / 2 <= enemies[i].obj.x + enemies[i].obj.w / 2) &&
-            (plane.obj.y - plane.obj.h / 2 >= enemies[i].obj.y - enemies[i].obj.h / 2 && plane.obj.y - plane.obj.h / 2 <= enemies[i].obj.y + enemies[i].obj.h / 2 ||
-                plane.obj.y + plane.obj.h / 2 >= enemies[i].obj.y - enemies[i].obj.h / 2 && plane.obj.y + plane.obj.h / 2 <= enemies[i].obj.y + enemies[i].obj.h / 2)) {
+        if (collision_detect(plane.obj, enemies[i].obj)) {
             game_change_scene(scene_menu_create());
         }
     }
@@ -169,18 +229,8 @@ static void update(void) {
         plane.obj.vx -= 1;
     if (key_state[ALLEGRO_KEY_RIGHT] || key_state[ALLEGRO_KEY_D])
         plane.obj.vx += 1;
+    move_object(&plane.obj, plane.obj.vx * 4 * (plane.obj.vy ? 0.71f : 1), plane.obj.vy * 4 * (plane.obj.vx ? 0.71f : 1), (int[]){0, 0, 0, 0});
 
-    plane.obj.y += plane.obj.vy * 4 * (plane.obj.vx ? 0.71f : 1);
-    plane.obj.x += plane.obj.vx * 4 * (plane.obj.vy ? 0.71f : 1);
-
-    if (plane.obj.x - plane.obj.w / 2 < 0)
-        plane.obj.x = plane.obj.w / 2;
-    else if (plane.obj.x + plane.obj.w / 2 > SCREEN_W)
-        plane.obj.x = SCREEN_W - plane.obj.w / 2;
-    if (plane.obj.y - plane.obj.h / 2 < 0)
-        plane.obj.y = plane.obj.h / 2;
-    else if (plane.obj.y + plane.obj.h / 2 > SCREEN_H)
-        plane.obj.y = SCREEN_H - plane.obj.h / 2;
 
     int i, j;
     for (i = 0; i < MAX_BULLET; i++) {
@@ -189,10 +239,7 @@ static void update(void) {
         for (j = 0; j < MAX_ENEMY; j++) {
             if (enemies[j].obj.hidden)
                 continue;
-            if ((bullets[i].obj.x - bullets[i].obj.w / 2 >= enemies[j].obj.x - enemies[j].obj.w / 2 && bullets[i].obj.x - bullets[i].obj.w / 2 <= enemies[j].obj.x + enemies[j].obj.w / 2 ||
-                 bullets[i].obj.x + bullets[i].obj.w / 2 >= enemies[j].obj.x - enemies[j].obj.w / 2 && bullets[i].obj.x + bullets[i].obj.w / 2 <= enemies[j].obj.x + enemies[j].obj.w / 2) &&
-                (bullets[i].obj.y - bullets[i].obj.h / 2 >= enemies[j].obj.y - enemies[j].obj.h / 2 && bullets[i].obj.y - bullets[i].obj.h / 2 <= enemies[j].obj.y + enemies[j].obj.h / 2 ||
-                 bullets[i].obj.y + bullets[i].obj.h / 2 >= enemies[j].obj.y - enemies[j].obj.h / 2 && bullets[i].obj.y + bullets[i].obj.h / 2 <= enemies[j].obj.y + enemies[j].obj.h / 2)) {
+            if (collision_detect(bullets[i].obj, enemies[j].obj)) {
                 enemies[j].health--;
                 bullets[i].obj.hidden = true;
                 if (enemies[j].health == 0)
@@ -204,10 +251,7 @@ static void update(void) {
     for (i = 0; i < MAX_BULLET; i++) {
         if (bullets[i].obj.hidden)
             continue;
-        bullets[i].obj.x += bullets[i].obj.vx;
-        bullets[i].obj.y += bullets[i].obj.vy;
-        if (bullets[i].obj.y + bullets[i].obj.h / 2 < 0)
-            bullets[i].obj.hidden = true;
+        move_object(&bullets[i].obj, bullets[i].obj.vx, bullets[i].obj.vy, (int[]) {0, 0, 2, 0});
     }
 
     int hidden_enemy_count = 0;
@@ -218,20 +262,8 @@ static void update(void) {
             hidden_enemy_count++;
             continue;
         }
-        
         enemies[i].obj.vx = -5*sin(enemies[i].obj.y/10);
-        enemies[i].obj.x += enemies[i].obj.vx;
-        enemies[i].obj.y += enemies[i].obj.vy;
-        if (enemies[i].obj.y - enemies[i].obj.h / 2 >= SCREEN_H) {
-            enemies[i].obj.hidden = true;
-        }
-
-        if (enemies[i].obj.x + enemies[i].obj.w / 2 >= SCREEN_W) {
-            enemies[i].obj.x = SCREEN_W - enemies[i].obj.w / 2;
-        }
-        if (enemies[i].obj.x - enemies[i].obj.w / 2 < 0) {
-            enemies[i].obj.x = enemies[i].obj.w;
-        }
+        move_object(&enemies[i].obj, enemies[i].obj.vx, enemies[i].obj.vy, (int[]) { 0, 0, 1, 2 });
     }
 
     if (hidden_enemy_count >= enemy_group_size) {
@@ -267,10 +299,10 @@ static void update(void) {
 static void draw_movable_object(MovableObject obj, int pic_num) {
     if (obj.hidden)
         return;
-    al_draw_bitmap(obj.img[pic_num], round(obj.x - obj.w / 2), round(obj.y - obj.h / 2), 0);
+    al_draw_bitmap(obj.img[pic_num], round((double)obj.x - (double)obj.w / 2), round((double)obj.y - (double)obj.h / 2), 0);
     if (draw_gizmos) {
-        al_draw_rectangle(round(obj.x - obj.w / 2), round(obj.y - obj.h / 2),
-            round(obj.x + obj.w / 2) + 1, round(obj.y + obj.h / 2) + 1, al_map_rgb(255, 0, 0), 0);
+        al_draw_rectangle(round((double)obj.x - (double)obj.w / 2), round((double)obj.y - (double)obj.h / 2),
+            round((double)obj.x + (double)obj.w / 2) + 1, round((double)obj.y + (double)obj.h / 2) + 1, al_map_rgb(255, 0, 0), 0);
     }
 }
 
@@ -281,7 +313,7 @@ static void draw(void) {
         draw_movable_object(bullets[i].obj, 0);
     draw_movable_object(plane.obj, 0);
     for (i = 0; i < MAX_ENEMY; i++)
-        draw_movable_object(enemies[i].obj, enemies[i].max_health-enemies[i].health);
+        draw_movable_object(enemies[i].obj, enemies[i].max_health- enemies[i].health);
 }
 
 static void destroy(void) {
