@@ -5,6 +5,7 @@
 #include "game.h"
 #include "utility.h"
 #include "scene_menu.h"
+#include "shared.h"
 #include <math.h>
 
 #define PI 3.14159265358979323846
@@ -17,6 +18,7 @@ static ALLEGRO_BITMAP* img_small_fighter_broken2;
 static ALLEGRO_BITMAP* img_middle_fighter;
 static ALLEGRO_BITMAP* img_plane_bullet;
 static ALLEGRO_BITMAP* img_middle_bullet;
+static ALLEGRO_BITMAP* img_heart;
 
 typedef struct {
     // The center coordinate of the image.
@@ -73,6 +75,8 @@ static Enemy small_enemies[MAX_SMALL_ENEMY];
 static Enemy middle_enemies[MAX_MIDDLE_ENEMY];
 static Bullet plane_bullets[MAX_PLANE_BULLET];
 static Bullet middle_bullets[MAX_MIDDLE_BULLET];
+static int score;
+static float start_time;
 static const float MAX_COOLDOWN = 0.05;
 static double last_shoot_timestamp;
 static double last_middle_shoot_timestamp[MAX_MIDDLE_ENEMY];
@@ -83,15 +87,10 @@ static bool draw_gizmos;
 
 static void init(void) {
     int i;
-    img_background = load_bitmap_resized("resources\\start-bg.jpg", SCREEN_W, SCREEN_H);
-    img_small_fighter = load_bitmap("resources\\smallfighter.png");
-    img_small_fighter_broken1 = load_bitmap("resources\\smallfighter_broken1.png");
-    img_small_fighter_broken2 = load_bitmap("resources\\smallfighter_broken2.png");
-    img_middle_fighter = load_bitmap("resources\\rocket-3.png");
-    img_middle_bullet = load_bitmap("resources\\missile.png");
-    img_plane_bullet = load_bitmap("resources\\image12.png");
-    img_plane = load_bitmap("resources\\plane.png");
+    start_time = al_get_time();
+    score = 0;
 
+    init_image();
 
     init_plane(&plane);
 
@@ -117,6 +116,18 @@ static void init(void) {
     bgm_id = play_bgm(bgm, 1);
 }
 
+static init_image() {
+    img_background = load_bitmap_resized("resources\\start-bg.jpg", SCREEN_W, SCREEN_H);
+    img_small_fighter = load_bitmap("resources\\smallfighter.png");
+    img_small_fighter_broken1 = load_bitmap("resources\\smallfighter_broken1.png");
+    img_small_fighter_broken2 = load_bitmap("resources\\smallfighter_broken2.png");
+    img_middle_fighter = load_bitmap("resources\\rocket-3.png");
+    img_middle_bullet = load_bitmap("resources\\missile.png");
+    img_plane_bullet = load_bitmap("resources\\image12.png");
+    img_plane = load_bitmap("resources\\plane.png");
+    img_heart = load_bitmap("resources\\hearts.png");
+}
+
 
 static void init_plane(Player* player) {
     player->obj.img[0] = img_plane;
@@ -125,7 +136,7 @@ static void init_plane(Player* player) {
     player->obj.w = al_get_bitmap_width(player->obj.img[0]);
     player->obj.h = al_get_bitmap_height(player->obj.img[0]);
     player->obj.theta = 0;
-    player->max_health = 1;
+    player->max_health = 5;
     player->health = player->max_health;
 }
 
@@ -181,17 +192,47 @@ static void init_bullet(Bullet* bullet, int type) {
     bullet->obj.hidden = true;
 }
 
+#define max_len 101
 int collision_detect(MovableObject obj1, MovableObject obj2) {
-    if ((obj1.x - obj1.w / 2 >= obj2.x - obj2.w / 2 && obj1.x - obj1.w / 2 <= obj2.x + obj1.w / 2  ||
+    if ((obj1.x - obj1.w / 2 >= obj2.x - obj2.w / 2 && obj1.x - obj1.w / 2 <= obj2.x + obj1.w / 2 ||
          obj1.x + obj1.w / 2 >= obj2.x - obj2.w / 2 && obj1.x + obj1.w / 2 <= obj2.x + obj2.w / 2) &&
-        (obj1.y - obj1.h / 2 >= obj2.y - obj2.h / 2 && obj1.y - obj1.h / 2 <= obj2.y + obj2.h / 2  ||
+        (obj1.y - obj1.h / 2 >= obj2.y - obj2.h / 2 && obj1.y - obj1.h / 2 <= obj2.y + obj2.h / 2 ||
          obj1.y + obj1.h / 2 >= obj2.y - obj2.h / 2 && obj1.y + obj1.h / 2 <= obj2.y + obj2.h / 2)) {
-        return 1;
+        char collision_box1[max_len][max_len] = {0};
+        char collision_box2[max_len][max_len] = {0};
+        unsigned char pixel, _;
+
+        al_lock_bitmap(obj1.img[0], ALLEGRO_PIXEL_FORMAT_ANY, ALLEGRO_LOCK_READWRITE);
+        al_lock_bitmap(obj2.img[0], ALLEGRO_PIXEL_FORMAT_ANY, ALLEGRO_LOCK_READWRITE);
+
+        for (int x = 0; x < obj1.w; x++) {
+            for (int y = 0; y < obj1.h; y++) {
+                al_unmap_rgba(al_get_pixel(obj1.img[0], x, y), &_, &_, &_, &pixel);
+                collision_box1[(int)((x - obj1.w / 2) * cos((double)obj1.theta) - (y - obj1.h / 2) * sin((double)obj1.theta) + (max_len-1)/2+1)][(int)((x - obj1.w / 2) * sin((double)obj1.theta) + (y - obj1.h / 2) * cos((double)obj1.theta) + (max_len-1)/2+1)] = (pixel != 0);
+            }
+        }
+        for (int x = 0; x < obj2.w; x++) {
+            for (int y = 0; y < obj2.h; y++) {
+                al_unmap_rgba(al_get_pixel(obj2.img[0], x, y), &_, &_, &_, &pixel);
+                collision_box2[(int)((x - obj2.w / 2) * cos((double)obj2.theta) - (y - obj2.h / 2) * sin((double)obj2.theta) + (max_len-1)/2+1)][(int)((x - obj2.w / 2) * sin((double)obj2.theta) + (y - obj2.h / 2) * cos((double)obj2.theta) + (max_len-1)/2+1)] = (pixel != 0);
+            }
+        }
+
+        al_unlock_bitmap(obj1.img[0]);
+        al_unlock_bitmap(obj2.img[0]);
+
+        for (int y = 0; y < max_len; y++) {
+            for (int x = 0; x < max_len; x++) {
+                if (!collision_box1[x][y] || obj1.x - obj2.x + x >= max_len || obj1.x - obj2.x + x < 0 || obj1.y - obj2.y + y >= max_len || obj1.y - obj2.y + y < 0)
+                    continue;
+                if (collision_box2[(int)(obj1.x - obj2.x + x)][(int)(obj1.y - obj2.y + y)])
+                    return 1;
+            }
+        }
     }
-    else {
-        return 0;
-    }
+    return 0;
 }
+#undef max_len
 
 //restrict_in_LRUD: 0:check boundaries, 1: don't check boundaries, 2: go out then hidden
 void move_object(MovableObject* obj, int* restrict_in_LRUD) {
@@ -253,21 +294,33 @@ static void update(void) {
         if (small_enemies[i].obj.hidden)
             continue;
         if (collision_detect(plane.obj, small_enemies[i].obj)) {
-            game_change_scene(scene_menu_create());
+            plane.health--;
+            score -= 10;
+            small_enemies[i].obj.hidden = true;
         }
     }
     for (i = 0; i < MAX_MIDDLE_ENEMY; i++) {
         if (middle_enemies[i].obj.hidden)
             continue;
-        if (collision_detect(plane.obj, middle_enemies[i].obj))
-            game_change_scene(scene_menu_create());
+        if (collision_detect(plane.obj, middle_enemies[i].obj)) {
+            plane.health--;
+            score -= 10;
+            middle_enemies[i].obj.hidden = true;
+        }
     }
     for (i = 0; i < MAX_MIDDLE_BULLET; i++) {
         if (middle_bullets[i].obj.hidden)
             continue;
-        if (collision_detect(plane.obj, middle_bullets[i].obj))
-            game_change_scene(scene_menu_create());
+        if (collision_detect(plane.obj, middle_bullets[i].obj)) {
+            plane.health--;
+            score -= 10;
+            middle_bullets[i].obj.hidden = true;
+        }
     }
+
+    if (plane.health <= 0)
+        game_change_scene(scene_menu_create());
+
     for (i = 0; i < MAX_PLANE_BULLET; i++) {
         if (plane_bullets[i].obj.hidden)
             continue;
@@ -277,8 +330,10 @@ static void update(void) {
             if (collision_detect(plane_bullets[i].obj, small_enemies[j].obj)) {
                 small_enemies[j].health--;
                 plane_bullets[i].obj.hidden = true;
-                if (small_enemies[j].health == 0)
+                if (small_enemies[j].health == 0) {
                     small_enemies[j].obj.hidden = true;
+                    score += 10;
+                }
             }
         }
         if (plane_bullets[i].obj.hidden)
@@ -289,8 +344,10 @@ static void update(void) {
             if (collision_detect(plane_bullets[i].obj, middle_enemies[j].obj)) {
                 middle_enemies[j].health--;
                 plane_bullets[i].obj.hidden = true;
-                if (middle_enemies[j].health == 0)
+                if (middle_enemies[j].health == 0) {
                     middle_enemies[j].obj.hidden = true;
+                    score += 50;
+                }
             }
         }
         if (plane_bullets[i].obj.hidden)
@@ -323,7 +380,7 @@ static void update(void) {
     for (i = 0; i < MAX_PLANE_BULLET; i++) {
         if (plane_bullets[i].obj.hidden)
             continue;
-        move_object(&plane_bullets[i].obj, (int[]) {0, 0, 2, 0});
+        move_object(&plane_bullets[i].obj, (int[]) {2, 2, 2, 2});
     }
 
     int hidden_enemy_count = 0;
@@ -411,6 +468,9 @@ static void update(void) {
                 plane_bullets[i].obj.hidden = false;
                 plane_bullets[i].obj.x = plane.obj.x;
                 plane_bullets[i].obj.y = plane.obj.y;
+                plane_bullets[i].obj.theta = -PI / 2;
+                plane_bullets[i].obj.vx = 0;
+                plane_bullets[i].obj.vy = -20;
                 break;
             }
         }
@@ -446,6 +506,8 @@ static void draw_movable_object(MovableObject obj, int pic_num) {
 static void draw(void) {
     int i;
     al_draw_bitmap(img_background, 0, 0, 0);
+    for (i = 0; i < plane.health; i++)
+        al_draw_bitmap(img_heart, SCREEN_W - 30 - i * 30, 10, 0);
     for (i = 0; i < MAX_PLANE_BULLET; i++)
         draw_movable_object(plane_bullets[i].obj, 0);
     draw_movable_object(plane.obj, 0);
@@ -455,6 +517,9 @@ static void draw(void) {
         draw_movable_object(middle_enemies[i].obj, 0);
     for (i = 0; i < MAX_MIDDLE_BULLET; i++)
         draw_movable_object(middle_bullets[i].obj, 0);
+    float now = al_get_time();
+    al_draw_textf(font_pirulen_24, al_map_rgb(0, 0, 0), 10, 10, 0, "Time Survived: %d:%d:%d", (int)((now - start_time) / 60), ((int)(now - start_time) % 60), (int)((now-start_time)*1000)%1000);
+    al_draw_textf(font_pirulen_24, al_map_rgb(0, 0, 0), 10, 50, 0, "Score: %d", score);
 }
 
 static void destroy(void) {
@@ -474,6 +539,26 @@ static void on_key_down(int keycode) {
         draw_gizmos = !draw_gizmos;
 }
 
+static void on_mouse_down(int btn, int x, int y, int dz) {
+    if (btn == mouse_state[1]) {
+        double now = al_get_time();
+        if (now - last_shoot_timestamp >= MAX_COOLDOWN) {
+            for (int i = 0; i < MAX_PLANE_BULLET; i++) {
+                if (plane_bullets[i].obj.hidden) {
+                    last_shoot_timestamp = now;
+                    plane_bullets[i].obj.hidden = false;
+                    plane_bullets[i].obj.x = plane.obj.x;
+                    plane_bullets[i].obj.y = plane.obj.y;
+                    plane_bullets[i].obj.theta = atan2(y - plane.obj.y, x - plane.obj.x);
+                    plane_bullets[i].obj.vx = 20 * cos(plane_bullets[i].obj.theta);
+                    plane_bullets[i].obj.vy = 20 * sin(plane_bullets[i].obj.theta);
+                    break;
+                }
+            }
+        }
+    }
+}
+
 // TODO: Add more event callback functions such as keyboard, mouse, ...
 
 // Functions without 'static', 'extern' prefixes is just a normal
@@ -490,6 +575,7 @@ Scene scene_start_create(void) {
     scene.draw = &draw;
     scene.destroy = &destroy;
     scene.on_key_down = &on_key_down;
+    scene.on_mouse_down = &on_mouse_down;
     // TODO: Register more event callback functions such as keyboard, mouse, ...
     game_log("Start scene created");
     return scene;

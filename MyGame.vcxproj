@@ -22,6 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{9B3D2750-AF4E-44CE-88CD-9787C29EB40C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -129,6 +130,11 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="resources\mythica.ogg" />
@@ -154,6 +160,7 @@
   <ItemGroup>
     <Image Include="resources\crosshair052.png" />
     <Image Include="resources\crosshair146.png" />
+    <Image Include="resources\hearts.png" />
     <Image Include="resources\image12.png" />
     <Image Include="resources\main-bg.jpg" />
     <Image Include="resources\plane.png" />
@@ -163,6 +170,7 @@
     <Image Include="resources\rocket-4.png" />
     <Image Include="resources\settings.png" />
     <Image Include="resources\settings2.png" />
+    <Image Include="resources\settings_backgroud.jpg" />
     <Image Include="resources\smallfighter0006.png" />
     <Image Include="resources\start-bg.jpg" />
     <Image Include="resources\tank-1.png" />

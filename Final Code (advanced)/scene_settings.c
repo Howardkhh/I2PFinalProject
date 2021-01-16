@@ -1,40 +1,46 @@
-// [HACKATHON 3-9]
-// TODO: Create scene_settings.h and scene_settings.c.
-// No need to do anything for this part. We've already done it for
-// you, so this 2 files is like the default scene template.
 #include "scene_settings.h"
 #include "scene_menu.h"
+#include "utility.h"
 
-// Variables and functions with 'static' prefix at the top level of a
-// source file is only accessible in that file ("file scope", also
-// known as "internal linkage"). If other files has the same variable
-// name, they'll be different variables.
+static ALLEGRO_BITMAP* img_backgroud;
+static ALLEGRO_BITMAP* img_back1;
+static ALLEGRO_BITMAP* img_back2;
 
-/* Define your static vars / function prototypes below. */
 
-// TODO: More variables and functions that will only be accessed
-// inside this scene. They should all have the 'static' prefix.
+static void init(void) {
+    img_backgroud = load_bitmap_resized("resources\\settings_backgroud.jpg", SCREEN_W, SCREEN_H);
+    img_back1 = load_bitmap("resources\\back.png");
+    img_back2 = load_bitmap("resources\\back2.png");
+}
 
 static void draw(void) {
-    al_clear_to_color(al_map_rgb(0, 0, 0));
+    al_draw_bitmap(img_backgroud, 0, 0, 0);
+    if (pnt_in_rect(mouse_x, mouse_y, 10, 10, 38, 38))
+        al_draw_bitmap(img_back1, 10, 10, 0);
+    else
+        al_draw_bitmap(img_back2, 10, 10, 0);
 }
 
 static void on_key_down(int keycode) {
-    // [HACKATHON 3-10]
-    // TODO: If active_scene is SCENE_SETTINGS and Backspace is pressed,
-    // return to SCENE_MENU.
     if (keycode == ALLEGRO_KEY_BACKSPACE)
         game_change_scene(scene_menu_create());
 }
 
-// The only function that is shared across files.
+static void on_mouse_down(int btn, int x, int y, int dz) {
+    if (btn == mouse_state[1]) {
+        if (pnt_in_rect(x, y, 10, 10, 38, 38))
+            game_change_scene(scene_menu_create());
+    }
+}
+
 Scene scene_settings_create(void) {
     Scene scene;
     memset(&scene, 0, sizeof(Scene));
+    scene.initialize = &init;
     scene.name = "Start";
     scene.draw = &draw;
     scene.on_key_down = &on_key_down;
-    // TODO: Register more event callback functions such as keyboard, mouse, ...
+    scene.on_mouse_down = &on_mouse_down;
     game_log("Settings scene created");
     return scene;
 }

@@ -121,6 +121,12 @@
     <Image Include="resources\ufo-3.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="resources\settings_backgroud.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\hearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\pirulen.ttf">
