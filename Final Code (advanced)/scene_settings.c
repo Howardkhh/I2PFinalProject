@@ -5,26 +5,74 @@
 static ALLEGRO_BITMAP* img_backgroud;
 static ALLEGRO_BITMAP* img_back1;
 static ALLEGRO_BITMAP* img_back2;
+static ALLEGRO_BITMAP* img_plane1;
+static ALLEGRO_BITMAP* img_plane2;
+static ALLEGRO_BITMAP* img_bullet1;
+static ALLEGRO_BITMAP* img_bullet2;
+static ALLEGRO_BITMAP* img_box_blue;
+static ALLEGRO_BITMAP* img_box_red;
+static ALLEGRO_BITMAP* img_1p;
+static ALLEGRO_BITMAP* img_2p;
 
+int selected_plane;
+int multiplayer;
 
 static void init(void) {
     img_backgroud = load_bitmap_resized("resources\\settings_backgroud.jpg", SCREEN_W, SCREEN_H);
     img_back1 = load_bitmap("resources\\back.png");
     img_back2 = load_bitmap("resources\\back2.png");
+    img_plane1 = load_bitmap_resized("resources\\plane.png", 200, 200);
+    img_plane2 = load_bitmap_resized("resources\\plane2.png", 200, 200);
+    img_bullet1 = load_bitmap_resized("resources\\bullet.png", 50, 25);
+    img_bullet2 = load_bitmap_resized("resources\\bullet2.png", 50, 50);
+    img_box_blue = load_bitmap("resources\\box_blue.png");
+    img_box_red = load_bitmap("resources\\box_red.png");
+    img_1p = load_bitmap("resources\\1P.png");
+    img_2p = load_bitmap("resources\\2P.png");
 }
 
 static void draw(void) {
     al_draw_bitmap(img_backgroud, 0, 0, 0);
+    al_draw_bitmap(img_plane1, 150, 240, 0);
+    al_draw_bitmap(img_plane2, 450, 240, 0);
+    al_draw_rotated_bitmap(img_bullet1, 25, 12.5, 250, 200, 4.7123889803835, 0);
+    al_draw_bitmap(img_bullet2, 525, 175, 0);
+    if (multiplayer) {
+        al_draw_bitmap(img_box_blue, 100, 150, 0);
+        al_draw_bitmap(img_box_blue, 400, 150, 0);
+    }
+    else if (selected_plane == 0)
+        al_draw_bitmap(img_box_blue, 100, 150, 0);
+    else if (selected_plane == 1)
+        al_draw_bitmap(img_box_blue, 400, 150, 0);
+    
+    if (!multiplayer)
+        al_draw_bitmap(img_1p, 300, 50, 0);
+    else
+        al_draw_bitmap(img_2p, 300, 50, 0);
+
     if (pnt_in_rect(mouse_x, mouse_y, 10, 10, 38, 38))
         al_draw_bitmap(img_back1, 10, 10, 0);
     else
         al_draw_bitmap(img_back2, 10, 10, 0);
+
+    if (pnt_in_rect(mouse_x, mouse_y, 140, 170, 220, 280))
+        al_draw_bitmap(img_box_red, 100, 150, 0);
+    if (pnt_in_rect(mouse_x, mouse_y, 440, 170, 220, 280))
+        al_draw_bitmap(img_box_red, 400, 150, 0);
 }
 
 static void destroy(void) {
     al_destroy_bitmap(img_backgroud);
     al_destroy_bitmap(img_back1);
     al_destroy_bitmap(img_back2);
+    al_destroy_bitmap(img_plane1);
+    al_destroy_bitmap(img_plane2);
+    al_destroy_bitmap(img_bullet1);
+    al_destroy_bitmap(img_bullet2);
+    al_destroy_bitmap(img_box_blue);
+    al_destroy_bitmap(img_box_red);
+    al_destroy_bitmap(img_1p);
 }
 
 static void on_key_down(int keycode) {
@@ -36,6 +84,12 @@ static void on_mouse_down(int btn, int x, int y, int dz) {
     if (btn == mouse_state[1]) {
         if (pnt_in_rect(x, y, 10, 10, 38, 38))
             game_change_scene(scene_menu_create());
+        else if (pnt_in_rect(x, y, 140, 170, 220, 280))
+            selected_plane = 0;
+        else if (pnt_in_rect(x, y, 440, 170, 220, 280))
+            selected_plane = 1;
+        else if (pnt_in_rect(x, y, 300, 50, 200, 50))
+            multiplayer = !multiplayer;
     }
 }
 
