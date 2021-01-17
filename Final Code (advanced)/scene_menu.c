@@ -22,13 +22,15 @@
 static const char* txt_title = "Space Shooter";
 static const char* txt_info = "Press enter key to start";
 static ALLEGRO_BITMAP* img_background;
-// [HACKATHON 3-1]
-// TODO: Declare 2 variables for storing settings images.
-// Uncomment and fill in the code below.
 static ALLEGRO_BITMAP* img_settings;
 static ALLEGRO_BITMAP* img_settings2;
+
+static ALLEGRO_SAMPLE* sound_click;
 static ALLEGRO_SAMPLE* bgm;
 static ALLEGRO_SAMPLE_ID bgm_id;
+
+
+int cont_bgm;
 
 static void init(void);
 static void draw(void);
@@ -36,26 +38,24 @@ static void destroy(void);
 static void on_key_down(int keycode);
 
 static void init(void) {
+    al_install_audio();
+    al_reserve_samples(100);
     img_background = load_bitmap_resized("resources\\main-bg.jpg", SCREEN_W, SCREEN_H);
-    // [HACKATHON 3-4]
-    // TODO: Load settings images.
-    // Uncomment and fill in the code below.
     img_settings = load_bitmap("resources\\settings.png");
     img_settings2 = load_bitmap("resources\\settings2.png");
-    // Can be moved to shared_init to decrease loading time.
-    bgm = load_audio("resources\\S31-Night Prowler.ogg");
-    bgm_id = play_bgm(bgm, 1);
+
+    if (sound_click == NULL)
+        sound_click = load_audio("resources\\click.mp3");
+    if (!cont_bgm) {
+        bgm = load_audio("resources\\S31-Night Prowler.ogg");
+        bgm_id = play_bgm(bgm, 1);
+    }
+    cont_bgm = 0;
     game_log("Menu scene initialized");
 }
 
 static void draw(void) {
     al_draw_bitmap(img_background, 0, 0, 0);
-    // [HACKATHON 3-5]
-    // TODO: Draw settings images.
-    // The settings icon should be located at (x, y, w, h) =
-    // (SCREEN_W - 48, 10, 38, 38).
-    // Change its image according to your mouse position.
-    // Uncomment and fill in the code below.
     if (pnt_in_rect(mouse_x, mouse_y, SCREEN_W-48, 10, 38, 38))
         al_draw_bitmap(img_settings2, SCREEN_W - 48, 10, 0);
     else
@@ -65,14 +65,13 @@ static void draw(void) {
 }
 
 static void destroy(void) {
-    al_destroy_sample(bgm);
     al_destroy_bitmap(img_background);
-    // [HACKATHON 3-6]
-    // TODO: Destroy the 2 settings images.
-    // Uncomment and fill in the code below.
     al_destroy_bitmap(img_settings);
     al_destroy_bitmap(img_settings2);
-    stop_bgm(bgm_id);
+    if (!cont_bgm) {
+        al_destroy_sample(bgm);
+        stop_bgm(bgm_id);
+    }
     game_log("Menu scene destroyed");
 }
 
@@ -81,23 +80,16 @@ static void on_key_down(int keycode) {
         game_change_scene(scene_start_create());
 }
 
-// [HACKATHON 3-7]
-// TODO: When settings clicked, switch to settings scene.
-// Uncomment and fill in the code below.
 static void on_mouse_down(int btn, int x, int y, int dz) {
     if (btn == mouse_state[1]) {
-        if (pnt_in_rect(x, y, SCREEN_W - 48, 10, 38, 38))
+        if (pnt_in_rect(x, y, SCREEN_W - 48, 10, 38, 38)) {
+            play_audio(sound_click, 1);
+            cont_bgm = 1;
             game_change_scene(scene_settings_create());
+        }
     }
 }
 
-// TODO: Add more event callback functions such as update, ...
-
-// Functions without 'static', 'extern' prefixes is just a normal
-// function, they can be accessed by other files using 'extern'.
-// Define your normal function prototypes below.
-
-// The only function that is shared across files.
 Scene scene_menu_create(void) {
     Scene scene;
     memset(&scene, 0, sizeof(Scene));
@@ -106,11 +98,7 @@ Scene scene_menu_create(void) {
     scene.draw = &draw;
     scene.destroy = &destroy;
     scene.on_key_down = &on_key_down;
-    // [HACKATHON 3-8]
-    // TODO: Register on_mouse_down.
-    // Uncomment the code below.
     scene.on_mouse_down = &on_mouse_down;
-    // TODO: Register more event callback functions such as update, mouse, ...
     game_log("Menu scene created");
     return scene;
 }

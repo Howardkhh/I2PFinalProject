@@ -89,7 +89,6 @@ static void allegro5_init(void) {
         game_abort("failed to install keyboard");
     if (!al_install_mouse())
         game_abort("failed to install mouse");
-    // TODO: Initialize other addons such as video, ...
 
     // Setup game display.
     game_display = al_create_display(SCREEN_W, SCREEN_H);
@@ -133,7 +132,7 @@ static void game_start_event_loop(void) {
         al_wait_for_event(game_event_queue, &event);
         if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
             // Event for clicking the window close button.
-            game_log("Window close button clicked");
+            //game_log("Window close button clicked");
             done = true;
         } else if (event.type == ALLEGRO_EVENT_TIMER) {
             // Event for redrawing the display.
@@ -142,25 +141,25 @@ static void game_start_event_loop(void) {
                 redraws++;
         } else if (event.type == ALLEGRO_EVENT_KEY_DOWN) {
             // Event for keyboard key down.
-            game_log("Key with keycode %d down", event.keyboard.keycode);
+            //game_log("Key with keycode %d down", event.keyboard.keycode);
             key_state[event.keyboard.keycode] = true;
             if (active_scene.on_key_down)
                 (*active_scene.on_key_down)(event.keyboard.keycode);
         } else if (event.type == ALLEGRO_EVENT_KEY_UP) {
             // Event for keyboard key up.
-            game_log("Key with keycode %d up", event.keyboard.keycode);
+            //game_log("Key with keycode %d up", event.keyboard.keycode);
             key_state[event.keyboard.keycode] = false;
             if (active_scene.on_key_up)
                 (*active_scene.on_key_up)(event.keyboard.keycode);
         } else if (event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
             // Event for mouse key down.
-            game_log("Mouse button %d down at (%d, %d)", event.mouse.button, event.mouse.x, event.mouse.y);
+            //game_log("Mouse button %d down at (%d, %d)", event.mouse.button, event.mouse.x, event.mouse.y);
             mouse_state[event.mouse.button] = true;
             if (active_scene.on_mouse_down)
                 (*active_scene.on_mouse_down)(event.mouse.button, event.mouse.x, event.mouse.y, 0);
         } else if (event.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
             // Event for mouse key up.
-            game_log("Mouse button %d up at (%d, %d)", event.mouse.button, event.mouse.x, event.mouse.y);
+            //game_log("Mouse button %d up at (%d, %d)", event.mouse.button, event.mouse.x, event.mouse.y);
             mouse_state[event.mouse.button] = false;
             if (active_scene.on_mouse_up)
                 (*active_scene.on_mouse_up)(event.mouse.button, event.mouse.x, event.mouse.y, 0);
@@ -174,7 +173,7 @@ static void game_start_event_loop(void) {
                     (*active_scene.on_mouse_move)(0, event.mouse.x, event.mouse.y, 0);
             } else if (event.mouse.dz != 0) {
                 // Event for mouse scroll.
-                game_log("Mouse scroll at (%d, %d) with delta %d", event.mouse.x, event.mouse.y, event.mouse.dz);
+                //game_log("Mouse scroll at (%d, %d) with delta %d", event.mouse.x, event.mouse.y, event.mouse.dz);
                 if (active_scene.on_mouse_scroll)
                     (*active_scene.on_mouse_scroll)(0, event.mouse.x, event.mouse.y, event.mouse.dz);
             }

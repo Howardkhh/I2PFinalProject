@@ -9,6 +9,8 @@
 ALLEGRO_FONT* font_pirulen_100;
 ALLEGRO_FONT* font_pirulen_32;
 ALLEGRO_FONT* font_pirulen_24;
+
+
 int score;
 float start_time;
 int selected_plane;
@@ -20,6 +22,7 @@ void shared_init(void) {
     font_pirulen_24 = load_font("resources\\pirulen.ttf", 24);
     selected_plane = 0;
     multiplayer = 0;
+    cont_bgm = 0;
     game_change_scene(scene_menu_create());
 }
 

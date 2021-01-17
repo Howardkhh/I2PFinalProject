@@ -10,217 +10,14 @@ loaded image: resources\main-bg.jpg
 resized image: resources\main-bg.jpg
 loaded image: resources\settings.png
 loaded image: resources\settings2.png
+loaded audio: resources\click.mp3
 loaded audio: resources\S31-Night Prowler.ogg
 played audio (bgm)
 Menu scene initialized
 Game initialized
 Game start event loop
-Key with keycode 67 down
-Start scene created
-Change scene from Menu to Start
-stop audio (bgm)
-Menu scene destroyed
-loaded image: resources\start-bg.jpg
-resized image: resources\start-bg.jpg
-loaded image: resources\smallfighter.png
-loaded image: resources\smallfighter_broken1.png
-loaded image: resources\smallfighter_broken2.png
-loaded image: resources\rocket-3.png
-loaded image: resources\missile.png
-loaded image: resources\bullet.png
-loaded image: resources\bullet2.png
-loaded image: resources\plane.png
-loaded image: resources\plane2.png
-loaded image: resources\hearts.png
-loaded audio: resources\mythica.ogg
-Start scene initialized
-played audio (bgm)
-Key with keycode 67 up
-Key with keycode 84 down
-Key with keycode 83 down
-Key with keycode 84 up
-Key with keycode 75 down
-Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 82 down
-Key with keycode 83 up
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 82 down
-Key with keycode 83 up
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 85 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 82 down
-Key with keycode 85 up
-Key with keycode 85 down
-Key with keycode 82 up
-Key with keycode 85 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 84 down
-Key with keycode 83 down
-Key with keycode 84 up
-Key with keycode 85 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 85 up
-Key with keycode 83 down
-Key with keycode 82 up
-Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 82 down
-Key with keycode 83 up
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 84 down
-Key with keycode 84 up
-Key with keycode 85 down
-Key with keycode 82 up
-Key with keycode 85 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 84 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 84 up
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 82 down
-Key with keycode 84 down
-Key with keycode 84 up
-Key with keycode 82 up
-Key with keycode 85 down
-Key with keycode 85 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 85 down
-Key with keycode 85 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 85 down
-Key with keycode 82 down
-Key with keycode 85 up
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 82 down
-Dead scene created
-Change scene from Start to Dead
-stop audio (bgm)
-Start scene destroyed
-loaded image: resources\dead-bg.jpg
-resized image: resources\dead-bg.jpg
-Key with keycode 82 up
-Key with keycode 75 up
-Key with keycode 67 down
-Menu scene created
-Change scene from Dead to Menu
-loaded image: resources\main-bg.jpg
-resized image: resources\main-bg.jpg
-loaded image: resources\settings.png
-loaded image: resources\settings2.png
-loaded audio: resources\S31-Night Prowler.ogg
-played audio (bgm)
-Menu scene initialized
-Key with keycode 67 up
-Key with keycode 67 down
-Start scene created
-Change scene from Menu to Start
-stop audio (bgm)
-Menu scene destroyed
-loaded image: resources\start-bg.jpg
-resized image: resources\start-bg.jpg
-loaded image: resources\smallfighter.png
-loaded image: resources\smallfighter_broken1.png
-loaded image: resources\smallfighter_broken2.png
-loaded image: resources\rocket-3.png
-loaded image: resources\missile.png
-loaded image: resources\bullet.png
-loaded image: resources\bullet2.png
-loaded image: resources\plane.png
-loaded image: resources\plane2.png
-loaded image: resources\hearts.png
-loaded audio: resources\mythica.ogg
-Start scene initialized
-played audio (bgm)
-Key with keycode 67 up
-Key with keycode 82 down
-Key with keycode 84 down
-Key with keycode 83 down
-Key with keycode 84 up
-Key with keycode 82 up
-Key with keycode 82 down
-Key with keycode 83 up
-Key with keycode 75 down
-Key with keycode 85 down
-Key with keycode 83 down
-Key with keycode 37 down
-Key with keycode 83 up
-Key with keycode 85 up
-Key with keycode 82 up
-Key with keycode 37 up
-Key with keycode 75 up
-Mouse button 1 down at (655, 477)
-Mouse button 1 up at (636, 501)
-Key with keycode 75 down
-Dead scene created
-Change scene from Start to Dead
-stop audio (bgm)
-Start scene destroyed
-loaded image: resources\dead-bg.jpg
-resized image: resources\dead-bg.jpg
-Mouse button 1 down at (549, 491)
-Mouse button 1 up at (549, 490)
-Key with keycode 75 up
-Key with keycode 67 down
-Menu scene created
-Change scene from Dead to Menu
-loaded image: resources\main-bg.jpg
-resized image: resources\main-bg.jpg
-loaded image: resources\settings.png
-loaded image: resources\settings2.png
-loaded audio: resources\S31-Night Prowler.ogg
-played audio (bgm)
-Menu scene initialized
-Key with keycode 67 up
-Mouse button 1 down at (765, 40)
 Settings scene created
 Change scene from Menu to Start
-stop audio (bgm)
 Menu scene destroyed
 loaded image: resources\settings_backgroud.jpg
 resized image: resources\settings_backgroud.jpg
@@ -238,23 +35,15 @@ loaded image: resources\box_blue.png
 loaded image: resources\box_red.png
 loaded image: resources\1P.png
 loaded image: resources\2P.png
-Mouse button 1 up at (765, 40)
-Mouse button 1 down at (540, 273)
-Mouse button 1 up at (540, 273)
-Mouse button 1 down at (34, 50)
-Mouse button 1 up at (34, 49)
-Mouse button 1 down at (48, 21)
+loaded audio: resources\click.mp3
+loaded audio: resources\switch.mp3
 Menu scene created
 Change scene from Start to Menu
 loaded image: resources\main-bg.jpg
 resized image: resources\main-bg.jpg
 loaded image: resources\settings.png
 loaded image: resources\settings2.png
-loaded audio: resources\S31-Night Prowler.ogg
-played audio (bgm)
 Menu scene initialized
-Mouse button 1 up at (48, 21)
-Key with keycode 67 down
 Start scene created
 Change scene from Menu to Start
 stop audio (bgm)
@@ -274,148 +63,12 @@ loaded image: resources\hearts.png
 loaded audio: resources\mythica.ogg
 Start scene initialized
 played audio (bgm)
-Key with keycode 67 up
-Key with keycode 83 down
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 75 down
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 82 down
-Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 82 up
-Key with keycode 82 down
-Key with keycode 83 up
-Key with keycode 82 up
-Key with keycode 75 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 75 down
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 83 down
-Key with keycode 82 up
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 84 down
-Key with keycode 82 down
-Key with keycode 84 up
-Key with keycode 82 up
-Key with keycode 84 down
-Key with keycode 83 down
-Key with keycode 84 up
-Key with keycode 85 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 85 up
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 84 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 84 up
-Key with keycode 84 down
-Key with keycode 82 up
-Key with keycode 84 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 85 down
-Key with keycode 83 down
-Key with keycode 85 up
-Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 84 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 84 up
-Key with keycode 85 down
-Key with keycode 82 up
-Key with keycode 85 up
-Key with keycode 84 down
-Key with keycode 83 down
-Key with keycode 84 up
-Key with keycode 83 up
-Key with keycode 85 down
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 85 up
-Key with keycode 84 down
-Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 84 up
-Key with keycode 85 down
-Key with keycode 82 down
-Key with keycode 85 up
-Key with keycode 82 up
-Key with keycode 84 down
-Key with keycode 84 up
-Key with keycode 85 down
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 85 up
-Key with keycode 84 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 84 up
-Key with keycode 85 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 85 up
-Key with keycode 84 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 84 up
-Key with keycode 82 down
-Key with keycode 83 up
-Key with keycode 85 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 85 up
-Key with keycode 84 down
-Key with keycode 82 up
-Key with keycode 82 down
-Key with keycode 84 up
-Key with keycode 85 down
-Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 85 up
-Key with keycode 82 down
-Key with keycode 84 down
-Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 82 up
-Key with keycode 84 up
-Key with keycode 84 down
-Key with keycode 83 up
-Key with keycode 84 up
-Key with keycode 85 down
-Key with keycode 82 down
-Key with keycode 85 up
-Key with keycode 82 up
-Key with keycode 84 down
 Dead scene created
 Change scene from Start to Dead
 stop audio (bgm)
 Start scene destroyed
 loaded image: resources\dead-bg.jpg
 resized image: resources\dead-bg.jpg
-Key with keycode 84 up
-Key with keycode 75 up
-Key with keycode 67 down
 Menu scene created
 Change scene from Dead to Menu
 loaded image: resources\main-bg.jpg
@@ -425,13 +78,8 @@ loaded image: resources\settings2.png
 loaded audio: resources\S31-Night Prowler.ogg
 played audio (bgm)
 Menu scene initialized
-Key with keycode 67 up
-Mouse button 1 down at (747, 40)
-Mouse button 1 up at (748, 40)
-Mouse button 1 down at (756, 38)
 Settings scene created
 Change scene from Menu to Start
-stop audio (bgm)
 Menu scene destroyed
 loaded image: resources\settings_backgroud.jpg
 resized image: resources\settings_backgroud.jpg
@@ -449,41 +97,15 @@ loaded image: resources\box_blue.png
 loaded image: resources\box_red.png
 loaded image: resources\1P.png
 loaded image: resources\2P.png
-Mouse button 1 up at (757, 38)
-Mouse button 2 down at (740, 63)
-Mouse button 2 up at (740, 63)
-Mouse button 1 down at (723, 59)
-Mouse button 1 up at (723, 59)
-Mouse button 1 down at (329, 75)
-Mouse button 1 up at (329, 75)
-Mouse button 1 down at (416, 78)
-Mouse button 1 up at (416, 78)
-Mouse button 1 down at (416, 78)
-Mouse button 1 up at (416, 78)
-Mouse button 1 down at (416, 78)
-Mouse button 1 up at (416, 78)
-Mouse button 1 down at (416, 78)
-Mouse button 1 up at (416, 78)
-Mouse button 1 down at (416, 78)
-Mouse button 1 up at (416, 78)
-Mouse button 2 down at (598, 68)
-Mouse button 2 up at (598, 68)
-Mouse button 1 down at (593, 58)
-Mouse button 1 up at (592, 58)
-Mouse button 1 down at (421, 62)
-Mouse button 1 up at (421, 62)
-Mouse button 1 down at (27, 31)
+loaded audio: resources\click.mp3
+loaded audio: resources\switch.mp3
 Menu scene created
 Change scene from Start to Menu
 loaded image: resources\main-bg.jpg
 resized image: resources\main-bg.jpg
 loaded image: resources\settings.png
 loaded image: resources\settings2.png
-loaded audio: resources\S31-Night Prowler.ogg
-played audio (bgm)
 Menu scene initialized
-Mouse button 1 up at (27, 31)
-Key with keycode 67 down
 Start scene created
 Change scene from Menu to Start
 stop audio (bgm)
@@ -503,208 +125,21 @@ loaded image: resources\hearts.png
 loaded audio: resources\mythica.ogg
 Start scene initialized
 played audio (bgm)
-Key with keycode 67 up
-Key with keycode 75 down
-Key with keycode 83 down
-Key with keycode 82 down
-Key with keycode 84 down
-Key with keycode 75 up
-Key with keycode 82 up
-Key with keycode 84 up
-Key with keycode 83 up
-Key with keycode 37 down
-Key with keycode 84 down
-Key with keycode 82 down
-Key with keycode 75 down
-Key with keycode 83 down
-Key with keycode 84 up
-Key with keycode 83 up
-Key with keycode 85 down
-Key with keycode 19 down
-Key with keycode 1 down
-Key with keycode 4 down
-Key with keycode 4 up
-Key with keycode 4 down
-Key with keycode 83 down
-Key with keycode 4 up
-Key with keycode 82 up
-Key with keycode 19 up
-Key with keycode 85 up
-Key with keycode 4 down
-Key with keycode 82 down
-Key with keycode 19 down
-Key with keycode 83 up
-Key with keycode 85 down
-Key with keycode 4 up
-Key with keycode 82 up
-Key with keycode 1 up
-Key with keycode 4 down
-Key with keycode 19 up
-Key with keycode 83 down
-Key with keycode 85 up
-Key with keycode 23 down
-Key with keycode 82 down
-Key with keycode 4 up
-Key with keycode 84 down
-Key with keycode 83 up
-Key with keycode 82 up
-Key with keycode 4 down
-Key with keycode 83 down
-Key with keycode 23 up
-Key with keycode 84 up
-Key with keycode 19 down
-Key with keycode 85 down
-Key with keycode 4 up
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 1 down
-Key with keycode 85 up
-Key with keycode 19 up
-Key with keycode 83 down
-Key with keycode 4 down
-Key with keycode 82 up
-Key with keycode 23 down
-Key with keycode 84 down
-Key with keycode 83 up
-Key with keycode 1 up
-Key with keycode 4 up
-Key with keycode 4 down
-Key with keycode 83 down
-Key with keycode 23 up
-Key with keycode 84 up
-Key with keycode 217 down
-Key with keycode 217 up
-Key with keycode 19 down
-Key with keycode 85 down
-Key with keycode 4 up
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 1 down
-Key with keycode 19 up
-Key with keycode 85 up
-Key with keycode 83 down
-Key with keycode 82 up
-Key with keycode 4 down
-Key with keycode 1 up
-Key with keycode 23 down
-Key with keycode 4 up
-Key with keycode 84 down
-Key with keycode 1 down
-Key with keycode 84 up
-Key with keycode 23 up
-Key with keycode 85 down
-Key with keycode 19 down
-Key with keycode 82 down
-Key with keycode 4 down
-Key with keycode 85 up
-Key with keycode 83 up
-Key with keycode 19 up
-Key with keycode 1 up
-Key with keycode 84 down
-Key with keycode 23 down
-Key with keycode 82 up
-Key with keycode 4 up
-Key with keycode 1 down
-Key with keycode 23 up
-Key with keycode 83 down
-Key with keycode 84 up
-Key with keycode 19 down
-Key with keycode 85 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 19 up
-Key with keycode 23 down
-Key with keycode 83 down
-Key with keycode 82 up
-Key with keycode 85 up
-Key with keycode 1 up
-Key with keycode 4 down
-Key with keycode 84 down
-Key with keycode 83 up
-Key with keycode 23 up
-Key with keycode 82 down
-Key with keycode 84 up
-Key with keycode 19 down
-Key with keycode 83 down
-Key with keycode 82 up
-Key with keycode 4 up
-Key with keycode 85 down
-Key with keycode 83 up
-Key with keycode 1 down
-Key with keycode 19 up
-Key with keycode 82 down
-Key with keycode 85 up
-Key with keycode 83 down
-Key with keycode 23 down
-Key with keycode 82 up
-Key with keycode 1 up
-Key with keycode 84 down
-Key with keycode 83 up
-Key with keycode 4 down
-Key with keycode 23 up
-Key with keycode 83 down
-Key with keycode 84 up
-Key with keycode 19 down
-Key with keycode 85 down
-Key with keycode 4 up
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 1 down
-Key with keycode 19 up
-Key with keycode 85 up
-Key with keycode 4 down
-Key with keycode 1 up
-Key with keycode 82 up
-Key with keycode 37 up
-Key with keycode 37 down
-Key with keycode 23 down
-Key with keycode 4 up
-Key with keycode 1 down
-Key with keycode 23 up
-Key with keycode 1 up
-Key with keycode 19 down
-Key with keycode 4 down
-Key with keycode 19 up
-Key with keycode 4 up
-Key with keycode 217 down
-Key with keycode 217 up
-Key with keycode 23 down
-Key with keycode 1 down
-Key with keycode 23 up
-Key with keycode 19 down
-Key with keycode 4 down
-Key with keycode 1 up
-Key with keycode 19 up
-Key with keycode 23 down
-Key with keycode 4 up
-Key with keycode 1 down
-Key with keycode 23 up
-Key with keycode 19 down
-Key with keycode 4 down
-Key with keycode 1 up
-Key with keycode 19 up
-Key with keycode 23 down
-Key with keycode 4 up
-Key with keycode 4 down
-Key with keycode 23 up
-Key with keycode 19 down
-Key with keycode 4 up
-Key with keycode 1 down
-Key with keycode 19 up
-Key with keycode 23 down
-Key with keycode 1 up
-Key with keycode 1 down
-Key with keycode 23 up
-Key with keycode 19 down
-Key with keycode 1 up
-Key with keycode 4 down
-Key with keycode 19 up
-Key with keycode 37 up
-Key with keycode 4 up
-Key with keycode 217 down
-Key with keycode 75 up
-Key with keycode 217 up
-Window close button clicked
+Dead scene created
+Change scene from Start to Dead
+stop audio (bgm)
+Start scene destroyed
+loaded image: resources\dead-bg.jpg
+resized image: resources\dead-bg.jpg
+Menu scene created
+Change scene from Dead to Menu
+loaded image: resources\main-bg.jpg
+resized image: resources\main-bg.jpg
+loaded image: resources\settings.png
+loaded image: resources\settings2.png
+loaded audio: resources\S31-Night Prowler.ogg
+played audio (bgm)
+Menu scene initialized
 Game end
 stop audio (bgm)
-Start scene destroyed
+Menu scene destroyed

@@ -1,6 +1,7 @@
 #include "scene_settings.h"
 #include "scene_menu.h"
 #include "utility.h"
+#include "shared.h"
 
 static ALLEGRO_BITMAP* img_backgroud;
 static ALLEGRO_BITMAP* img_back1;
@@ -14,10 +15,16 @@ static ALLEGRO_BITMAP* img_box_red;
 static ALLEGRO_BITMAP* img_1p;
 static ALLEGRO_BITMAP* img_2p;
 
+static ALLEGRO_SAMPLE* sound_click;
+static ALLEGRO_SAMPLE* sound_switch;
+
 int selected_plane;
 int multiplayer;
+int cont_bgm;
 
 static void init(void) {
+    al_install_audio();
+    al_reserve_samples(100);
     img_backgroud = load_bitmap_resized("resources\\settings_backgroud.jpg", SCREEN_W, SCREEN_H);
     img_back1 = load_bitmap("resources\\back.png");
     img_back2 = load_bitmap("resources\\back2.png");
@@ -29,6 +36,10 @@ static void init(void) {
     img_box_red = load_bitmap("resources\\box_red.png");
     img_1p = load_bitmap("resources\\1P.png");
     img_2p = load_bitmap("resources\\2P.png");
+
+    if (sound_click == NULL);
+        sound_click = load_audio("resources\\click.mp3");
+    sound_switch = load_audio("resources\\switch.mp3");
 }
 
 static void draw(void) {
@@ -73,23 +84,34 @@ static void destroy(void) {
     al_destroy_bitmap(img_box_blue);
     al_destroy_bitmap(img_box_red);
     al_destroy_bitmap(img_1p);
+    al_destroy_sample(sound_switch);
 }
 
 static void on_key_down(int keycode) {
-    if (keycode == ALLEGRO_KEY_BACKSPACE)
+    if (keycode == ALLEGRO_KEY_BACKSPACE) {
+        play_audio(sound_click, 1);
         game_change_scene(scene_menu_create());
+    }
 }
 
 static void on_mouse_down(int btn, int x, int y, int dz) {
     if (btn == mouse_state[1]) {
-        if (pnt_in_rect(x, y, 10, 10, 38, 38))
+        if (pnt_in_rect(x, y, 10, 10, 38, 38)) {
+            play_audio(sound_click, 1);
             game_change_scene(scene_menu_create());
-        else if (pnt_in_rect(x, y, 140, 170, 220, 280))
+        }
+        else if (pnt_in_rect(x, y, 140, 170, 220, 280)) {
+            play_audio(sound_switch, 1);
             selected_plane = 0;
-        else if (pnt_in_rect(x, y, 440, 170, 220, 280))
+        }
+        else if (pnt_in_rect(x, y, 440, 170, 220, 280)) {
+            play_audio(sound_switch, 1);
             selected_plane = 1;
-        else if (pnt_in_rect(x, y, 300, 50, 200, 50))
+        }
+        else if (pnt_in_rect(x, y, 300, 50, 200, 50)) {
+            play_audio(sound_switch, 1);
             multiplayer = !multiplayer;
+        }
     }
 }
 

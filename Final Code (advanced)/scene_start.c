@@ -23,6 +23,11 @@ static ALLEGRO_BITMAP* img_plane_bullet2;
 static ALLEGRO_BITMAP* img_middle_bullet;
 static ALLEGRO_BITMAP* img_heart;
 
+static ALLEGRO_SAMPLE* sound_laser;
+static ALLEGRO_SAMPLE* sound_gun;
+static ALLEGRO_SAMPLE* sound_explosion;
+static ALLEGRO_SAMPLE* sound_metal;
+
 static char hitbox_plane[2][101][101];
 static char hitbox_small_fighter[101][101];
 static char hitbox_middle_fighter[101][101];
@@ -70,6 +75,7 @@ static void init(void);
 static void init_image();
 static void init_hitbox();
 static void init_plane();
+static void init_sound();
 static void init_enemy(Enemy* enemy, int type);
 static void init_bullet(Bullet* bullet, int type);
 static void update(void);
@@ -118,6 +124,7 @@ static void init(void) {
     init_image();
     init_hitbox();
     init_plane();
+    init_sound();
 
     for (i = 0; i < MAX_SMALL_ENEMY; i++) {
         init_enemy(&small_enemies[i], 0);
@@ -254,13 +261,21 @@ static void init_plane() {
         plane[selected_plane].obj.h = al_get_bitmap_height(plane[selected_plane].obj.img[0]);
         plane[selected_plane].obj.theta = 0;
         plane[selected_plane].obj.hidden = false;
-        plane[selected_plane].type = 0;
+        plane[selected_plane].type = selected_plane;
         plane[selected_plane].max_health = 5;
-        plane[selected_plane].health = plane[0].max_health;
+        plane[selected_plane].health = plane[selected_plane].max_health;
     }
 
 }
 
+static void init_sound() {
+    al_install_audio();
+    al_reserve_samples(100);
+    sound_laser = al_load_sample("resources\\laser.mp3");
+    sound_gun = al_load_sample("resources\\gun.mp3");
+    sound_explosion = al_load_sample("resources\\explosion.mp3");
+    sound_metal = al_load_sample("resources\\metal.mp3");
+}
 
 static void init_enemy(Enemy* enemy, int type) {
     //type 0: small fighter, 1:mid fighter
@@ -319,11 +334,14 @@ static void init_bullet(Bullet* bullet, int type) {
 }
 
 #define max_len 101
+char collision_box1[max_len][max_len];
+char collision_box2[max_len][max_len];
 int collision_detect(MovableObject obj1, MovableObject obj2, char hitbox1[][101], char hitbox2[][101]) {
     if (sqrt(pow(obj1.x-obj2.x, 2)+pow(obj1.y-obj2.y, 2)) <= max(obj1.x,obj1.y) + max(obj2.x,obj2.y)) {
-        char collision_box1[max_len][max_len] = {0};
-        char collision_box2[max_len][max_len] = {0};
+
         unsigned char pixel, _;
+        memset(collision_box1, 0, sizeof(char) * max_len * max_len);
+        memset(collision_box2, 0, sizeof(char) * max_len * max_len);
 
         for (int x = 0; x < obj1.w; x++) {
             for (int y = 0; y < obj1.h; y++) {
@@ -355,19 +373,23 @@ void move_object(MovableObject* obj, int* restrict_in_LRUD) {
     obj->y += obj->vy;
 
     if (restrict_in_LRUD[0] == 0) {
-        if (obj->x - obj->w / 2 < 0)
+        if (obj->x - obj->w / 2 < 0) {
             obj->x = obj->w / 2;
+            obj->vx = 0;
+        }
     }
     else if (restrict_in_LRUD[0] == 1);
     else if (restrict_in_LRUD[0] == 2){
         if (obj->x + obj->w / 2 < 0) {
             obj->hidden = true;
-           return;
+            return;
         }
     }
     if (restrict_in_LRUD[1] == 0) {
-        if (obj->x + obj->w / 2 > SCREEN_W)
+        if (obj->x + obj->w / 2 > SCREEN_W) {
             obj->x = SCREEN_W - obj->w / 2;
+            obj->vx = 0;
+        }
     }
     else if (restrict_in_LRUD[1] == 1);
     else if (restrict_in_LRUD[1] == 2) {
@@ -377,8 +399,10 @@ void move_object(MovableObject* obj, int* restrict_in_LRUD) {
         }
     }
     if (restrict_in_LRUD[2] == 0) {
-        if (obj->y - obj->h / 2 < 0) 
+        if (obj->y - obj->h / 2 < 0) {
             obj->y = obj->h / 2;
+            obj->vy = 0;
+        }
     }
     else if (restrict_in_LRUD[2] == 1);
     else if (restrict_in_LRUD[2] == 2) {
@@ -388,8 +412,10 @@ void move_object(MovableObject* obj, int* restrict_in_LRUD) {
         }
     }
     if (restrict_in_LRUD[3] == 0) {
-        if (obj->y + obj->h / 2 > SCREEN_H)
+        if (obj->y + obj->h / 2 > SCREEN_H) {
             obj->y = SCREEN_H - obj->h / 2;
+            obj->vy = 0;
+        }
     }
     else if (restrict_in_LRUD[3] == 1);
     else if (restrict_in_LRUD[3] == 2) {
@@ -413,8 +439,9 @@ static void update(void) {
             if (plane[j].obj.hidden)
                 continue;
             if (collision_detect(plane[j].obj, small_enemies[i].obj, hitbox_plane[j], hitbox_middle_fighter)) {
+                play_audio(sound_explosion, 1);
                 plane[j].health--;
-                score -= 10;
+                score -= 50;
                 small_enemies[i].obj.hidden = true;
             }
         }
@@ -426,8 +453,9 @@ static void update(void) {
             if (plane[j].obj.hidden)
                 continue;
             if (collision_detect(plane[j].obj, middle_enemies[i].obj, hitbox_plane[j], hitbox_middle_fighter)) {
+                play_audio(sound_explosion, 1);
                 plane[j].health--;
-                score -= 10;
+                score -= 50;
                 middle_enemies[i].obj.hidden = true;
             }
         }
@@ -439,8 +467,9 @@ static void update(void) {
             if (plane[j].obj.hidden)
                 continue;
             if (collision_detect(plane[j].obj, middle_bullets[i].obj, hitbox_plane[j], hitbox_middle_bullet)) {
+                play_audio(sound_explosion, 1);
                 plane[j].health--;
-                score -= 10;
+                score -= 50;
                 middle_bullets[i].obj.hidden = true;
             }
         }
@@ -464,10 +493,13 @@ static void update(void) {
                 if (small_enemies[j].obj.hidden)
                     continue;
                 if (collision_detect(plane_bullets[k][i].obj, small_enemies[j].obj, hitbox_plane_bullet[k], hitbox_small_fighter)) {
-                    small_enemies[j].health--;
-                    if (k == 0)
+                    small_enemies[j].health -= ((k == 1) ? small_enemies[j].max_health : 1);
+                    if (k == 0) {
+                        play_audio(sound_metal, 1);
                         plane_bullets[k][i].obj.hidden = true;
-                    if (small_enemies[j].health == 0) {
+                    }
+                    if (small_enemies[j].health <= 0) {
+                        play_audio(sound_explosion, 1);
                         small_enemies[j].obj.hidden = true;
                         score += 10;
                     }
@@ -483,6 +515,7 @@ static void update(void) {
                     if (k == 0)
                         plane_bullets[k][i].obj.hidden = true;
                     if (middle_enemies[j].health == 0) {
+                        play_audio(sound_explosion, 1);
                         middle_enemies[j].obj.hidden = true;
                         score += 30;
                     }
@@ -496,6 +529,7 @@ static void update(void) {
                 if (collision_detect(plane_bullets[k][i].obj, middle_bullets[j].obj, hitbox_plane_bullet[k], hitbox_middle_bullet)) {
                     if (k == 0)
                         plane_bullets[k][i].obj.hidden = true;
+                    play_audio(sound_explosion, 1);
                     middle_bullets[j].obj.hidden = true;
                 }
             }
@@ -678,6 +712,10 @@ static void update(void) {
                         plane_bullets[i][j].obj.theta = -PI / 2;
                         plane_bullets[i][j].obj.vx = plane[i].obj.vx;
                         plane_bullets[i][j].obj.vy = -10 * (2 - i) + plane[i].obj.vy;
+                        if (i == 0)
+                            play_audio(sound_gun, 0.3);
+                        else if (i == 1)
+                            play_audio(sound_laser, 1);
                         break;
                     }
                 }
@@ -695,6 +733,10 @@ static void update(void) {
                     plane_bullets[selected_plane][j].obj.theta = -PI / 2;
                     plane_bullets[selected_plane][j].obj.vx = plane[selected_plane].obj.vx;
                     plane_bullets[selected_plane][j].obj.vy = -10 * (2 - selected_plane) + plane[selected_plane].obj.vy;
+                    if (selected_plane == 0)
+                        play_audio(sound_gun, 0.3);
+                    else if (selected_plane == 1)
+                        play_audio(sound_laser, 1);
                     break;
                 }
             }
@@ -769,8 +811,13 @@ static void destroy(void) {
     al_destroy_bitmap(img_middle_bullet);
     al_destroy_bitmap(img_middle_fighter);
     al_destroy_bitmap(img_heart);
-    al_destroy_sample(bgm);
+    al_destroy_sample(sound_laser);
+    al_destroy_sample(sound_explosion);
+    al_destroy_sample(sound_gun);
+    al_destroy_sample(sound_metal);
     stop_bgm(bgm_id);
+    al_destroy_sample(bgm);
+    //al_uninstall_audio();
     game_log("Start scene destroyed");
 }
 
@@ -793,6 +840,10 @@ static void on_mouse_down(int btn, int x, int y, int dz) {
                         plane_bullets[i][j].obj.theta = atan2(y - plane[i].obj.y, x - plane[i].obj.x);
                         plane_bullets[i][j].obj.vx = 10 * (2-i) * cos(plane_bullets[i][j].obj.theta);
                         plane_bullets[i][j].obj.vy = 10 * (2-i) * sin(plane_bullets[i][j].obj.theta);
+                        if (i == 0)
+                            play_audio(sound_gun, 0.3);
+                        else if (i == 1)
+                            play_audio(sound_laser, 1);
                         break;
                     }
                 }
