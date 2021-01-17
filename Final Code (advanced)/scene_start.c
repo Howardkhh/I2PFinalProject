@@ -93,7 +93,7 @@ static Enemy small_enemies[MAX_SMALL_ENEMY];
 static Enemy middle_enemies[MAX_MIDDLE_ENEMY];
 static Bullet plane_bullets[2][MAX_PLANE_BULLET];
 static Bullet middle_bullets[MAX_MIDDLE_BULLET];
-static const float MAX_COOLDOWN[2] = { 0.05, 0.1 };
+static const float MAX_COOLDOWN[2] = { 0.2, 0.5 };
 static double last_shoot_timestamp[2];
 static double last_middle_shoot_timestamp[MAX_MIDDLE_ENEMY];
 static double middle_bullet_max_turn_angle = 0.4 * PI / 60;
@@ -271,10 +271,14 @@ static void init_plane() {
 static void init_sound() {
     al_install_audio();
     al_reserve_samples(100);
-    sound_laser = al_load_sample("resources\\laser.mp3");
-    sound_gun = al_load_sample("resources\\gun.mp3");
-    sound_explosion = al_load_sample("resources\\explosion.mp3");
-    sound_metal = al_load_sample("resources\\metal.mp3");
+    if (sound_laser == NULL)
+        sound_laser = al_load_sample("resources\\laser.mp3");
+    if (sound_gun == NULL)
+        sound_gun = al_load_sample("resources\\gun.mp3");
+    if (sound_explosion == NULL)
+        sound_explosion = al_load_sample("resources\\explosion.mp3");
+    if (sound_metal == NULL)
+        sound_metal = al_load_sample("resources\\metal.mp3");
 }
 
 static void init_enemy(Enemy* enemy, int type) {
@@ -700,7 +704,7 @@ static void update(void) {
 
     double now = al_get_time();
     if (multiplayer) {
-        int shoot_keys[2] = { ALLEGRO_KEY_SPACE, ALLEGRO_KEY_PAD_0 };
+        int shoot_keys[2] = { ALLEGRO_KEY_SPACE, ALLEGRO_KEY_RSHIFT };
         for (i = 0; i < 2; i++) {
             if (key_state[shoot_keys[i]] && now - last_shoot_timestamp[i] >= MAX_COOLDOWN[i] && !plane[i].obj.hidden) {
                 for (j = 0; j < MAX_PLANE_BULLET; j++) {
@@ -811,13 +815,8 @@ static void destroy(void) {
     al_destroy_bitmap(img_middle_bullet);
     al_destroy_bitmap(img_middle_fighter);
     al_destroy_bitmap(img_heart);
-    al_destroy_sample(sound_laser);
-    al_destroy_sample(sound_explosion);
-    al_destroy_sample(sound_gun);
-    al_destroy_sample(sound_metal);
     stop_bgm(bgm_id);
     al_destroy_sample(bgm);
-    //al_uninstall_audio();
     game_log("Start scene destroyed");
 }
 
