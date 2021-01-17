@@ -9,8 +9,11 @@
 
 // TODO: More shared resources or data that needed to be accessed
 // across different scenes. initialize the value in 'shared.c'.
+extern ALLEGRO_FONT* font_pirulen_100;
 extern ALLEGRO_FONT* font_pirulen_32;
 extern ALLEGRO_FONT* font_pirulen_24;
+extern int score;
+extern float start_time;
 
 // Initialize shared variables and resources.
 // Allows the game to perform any initialization it needs before

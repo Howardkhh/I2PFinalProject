@@ -6,10 +6,14 @@
 #include "game.h"
 #include "scene_menu.h"
 
+ALLEGRO_FONT* font_pirulen_100;
 ALLEGRO_FONT* font_pirulen_32;
 ALLEGRO_FONT* font_pirulen_24;
+int score;
+float start_time;
 
 void shared_init(void) {
+    font_pirulen_100 = load_font("resources\\pirulen.ttf", 100);
     font_pirulen_32 = load_font("resources\\pirulen.ttf", 32);
     font_pirulen_24 = load_font("resources\\pirulen.ttf", 24);
     game_change_scene(scene_menu_create());

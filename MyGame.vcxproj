@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="Final Code (advanced)\game.c" />
     <ClCompile Include="Final Code (advanced)\main.c" />
+    <ClCompile Include="Final Code (advanced)\scene_dead.c" />
     <ClCompile Include="Final Code (advanced)\scene_menu.c" />
     <ClCompile Include="Final Code (advanced)\scene_settings.c" />
     <ClCompile Include="Final Code (advanced)\scene_start.c" />
@@ -151,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Final Code (advanced)\game.h" />
+    <ClInclude Include="Final Code (advanced)\scene_dead.h" />
     <ClInclude Include="Final Code (advanced)\scene_menu.h" />
     <ClInclude Include="Final Code (advanced)\scene_settings.h" />
     <ClInclude Include="Final Code (advanced)\scene_start.h" />

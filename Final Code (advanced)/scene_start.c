@@ -5,6 +5,7 @@
 #include "game.h"
 #include "utility.h"
 #include "scene_menu.h"
+#include "scene_dead.h"
 #include "shared.h"
 #include <math.h>
 
@@ -75,8 +76,6 @@ static Enemy small_enemies[MAX_SMALL_ENEMY];
 static Enemy middle_enemies[MAX_MIDDLE_ENEMY];
 static Bullet plane_bullets[MAX_PLANE_BULLET];
 static Bullet middle_bullets[MAX_MIDDLE_BULLET];
-static int score;
-static float start_time;
 static const float MAX_COOLDOWN = 0.05;
 static double last_shoot_timestamp;
 static double last_middle_shoot_timestamp[MAX_MIDDLE_ENEMY];
@@ -319,7 +318,7 @@ static void update(void) {
     }
 
     if (plane.health <= 0)
-        game_change_scene(scene_menu_create());
+        game_change_scene(scene_dead_create());
 
     for (i = 0; i < MAX_PLANE_BULLET; i++) {
         if (plane_bullets[i].obj.hidden)
@@ -528,8 +527,11 @@ static void destroy(void) {
     al_destroy_bitmap(img_small_fighter);
     al_destroy_bitmap(img_small_fighter_broken1);
     al_destroy_bitmap(img_small_fighter_broken2);
-    al_destroy_sample(bgm);
     al_destroy_bitmap(img_plane_bullet);
+    al_destroy_bitmap(img_middle_bullet);
+    al_destroy_bitmap(img_middle_fighter);
+    al_destroy_bitmap(img_heart);
+    al_destroy_sample(bgm);
     stop_bgm(bgm_id);
     game_log("Start scene destroyed");
 }

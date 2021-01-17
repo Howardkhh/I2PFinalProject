@@ -25,7 +25,7 @@ int mouse_x, mouse_y;
 static ALLEGRO_DISPLAY* game_display;
 static ALLEGRO_EVENT_QUEUE* game_event_queue;
 static ALLEGRO_TIMER* game_update_timer;
-static const char* game_title = "I2P(I)_2020 Final Project <student_id>";
+static const char* game_title = "I2P(I)_2020 Final Project <109062102>";
 
 /* Declare static function prototypes. */
 

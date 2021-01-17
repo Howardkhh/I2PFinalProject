@@ -21,6 +21,12 @@ static void draw(void) {
         al_draw_bitmap(img_back2, 10, 10, 0);
 }
 
+static void destroy(void) {
+    al_destroy_bitmap(img_backgroud);
+    al_destroy_bitmap(img_back1);
+    al_destroy_bitmap(img_back2);
+}
+
 static void on_key_down(int keycode) {
     if (keycode == ALLEGRO_KEY_BACKSPACE)
         game_change_scene(scene_menu_create());
@@ -39,6 +45,7 @@ Scene scene_settings_create(void) {
     scene.initialize = &init;
     scene.name = "Start";
     scene.draw = &draw;
+    scene.destroy = &destroy;
     scene.on_key_down = &on_key_down;
     scene.on_mouse_down = &on_mouse_down;
     game_log("Settings scene created");

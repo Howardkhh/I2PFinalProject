@@ -45,6 +45,9 @@
     <ClCompile Include="Final Code (advanced)\utility.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Final Code (advanced)\scene_dead.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Final Code (advanced)\game.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Final Code (advanced)\utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Final Code (advanced)\scene_dead.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

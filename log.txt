@@ -1,6 +1,7 @@
 There are total 16 supported mouse buttons
 Allegro5 initialized
 Game begin
+loaded font: resources\pirulen.ttf with size 100
 loaded font: resources\pirulen.ttf with size 32
 loaded font: resources\pirulen.ttf with size 24
 Menu scene created
@@ -33,63 +34,31 @@ loaded audio: resources\mythica.ogg
 Start scene initialized
 played audio (bgm)
 Key with keycode 67 up
+Key with keycode 217 down
+Key with keycode 217 up
 Key with keycode 82 down
 Key with keycode 84 down
-Key with keycode 82 up
-Key with keycode 82 down
 Key with keycode 84 up
-Key with keycode 84 down
 Key with keycode 82 up
-Key with keycode 83 down
-Key with keycode 84 up
 Key with keycode 85 down
-Key with keycode 83 up
-Key with keycode 75 down
-Key with keycode 82 down
 Key with keycode 85 up
 Key with keycode 83 down
-Key with keycode 82 up
-Key with keycode 84 down
 Key with keycode 83 up
-Key with keycode 82 down
+Key with keycode 84 down
 Key with keycode 84 up
 Key with keycode 83 down
-Key with keycode 82 up
-Key with keycode 85 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 85 up
 Key with keycode 84 down
-Key with keycode 82 up
-Key with keycode 83 down
 Key with keycode 84 up
 Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 85 down
-Key with keycode 75 up
-Key with keycode 83 up
-Key with keycode 83 down
-Key with keycode 85 up
-Key with keycode 85 down
-Key with keycode 83 up
-Key with keycode 82 down
-Key with keycode 85 up
-Key with keycode 84 down
-Key with keycode 82 up
-Key with keycode 82 down
-Key with keycode 82 up
-Key with keycode 82 down
-Key with keycode 83 down
-Key with keycode 82 up
-Key with keycode 82 down
-Key with keycode 83 up
-Key with keycode 84 up
-Key with keycode 85 down
-Key with keycode 82 up
-Menu scene created
-Change scene from Start to Menu
+Dead scene created
+Change scene from Start to Dead
 stop audio (bgm)
 Start scene destroyed
+loaded image: resources\dead-bg.jpg
+resized image: resources\dead-bg.jpg
+Key with keycode 67 down
+Menu scene created
+Change scene from Dead to Menu
 loaded image: resources\main-bg.jpg
 resized image: resources\main-bg.jpg
 loaded image: resources\settings.png
@@ -97,20 +66,53 @@ loaded image: resources\settings2.png
 loaded audio: resources\S31-Night Prowler.ogg
 played audio (bgm)
 Menu scene initialized
+Key with keycode 67 up
+Key with keycode 67 down
+Start scene created
+Change scene from Menu to Start
+stop audio (bgm)
+Menu scene destroyed
+loaded image: resources\start-bg.jpg
+resized image: resources\start-bg.jpg
+loaded image: resources\smallfighter.png
+loaded image: resources\smallfighter_broken1.png
+loaded image: resources\smallfighter_broken2.png
+loaded image: resources\rocket-3.png
+loaded image: resources\missile.png
+loaded image: resources\image12.png
+loaded image: resources\plane.png
+loaded image: resources\hearts.png
+loaded audio: resources\mythica.ogg
+Start scene initialized
+played audio (bgm)
+Key with keycode 67 up
+Key with keycode 84 down
+Key with keycode 83 down
+Key with keycode 84 up
+Key with keycode 83 up
+Key with keycode 82 down
+Key with keycode 83 down
+Key with keycode 82 up
+Key with keycode 83 up
+Key with keycode 84 down
+Key with keycode 84 up
+Key with keycode 82 down
+Key with keycode 85 down
 Key with keycode 85 up
-Mouse button 1 down at (755, 33)
-Settings scene created
-Change scene from Menu to Start
+Key with keycode 83 down
+Key with keycode 82 up
+Key with keycode 83 up
+Dead scene created
+Change scene from Start to Dead
 stop audio (bgm)
-Menu scene destroyed
-loaded image: resources\settings_backgroud.jpg
-resized image: resources\settings_backgroud.jpg
-loaded image: resources\back.png
-loaded image: resources\back2.png
-Mouse button 1 up at (755, 33)
-Mouse button 1 down at (43, 35)
+Start scene destroyed
+loaded image: resources\dead-bg.jpg
+resized image: resources\dead-bg.jpg
+Key with keycode 84 down
+Key with keycode 84 up
+Key with keycode 67 down
 Menu scene created
-Change scene from Start to Menu
+Change scene from Dead to Menu
 loaded image: resources\main-bg.jpg
 resized image: resources\main-bg.jpg
 loaded image: resources\settings.png
@@ -118,22 +120,51 @@ loaded image: resources\settings2.png
 loaded audio: resources\S31-Night Prowler.ogg
 played audio (bgm)
 Menu scene initialized
-Mouse button 1 up at (43, 35)
-Mouse button 1 down at (786, 24)
-Settings scene created
+Key with keycode 67 up
+Key with keycode 67 down
+Start scene created
 Change scene from Menu to Start
 stop audio (bgm)
 Menu scene destroyed
-loaded image: resources\settings_backgroud.jpg
-resized image: resources\settings_backgroud.jpg
-loaded image: resources\back.png
-loaded image: resources\back2.png
-Mouse button 1 up at (786, 24)
-Mouse button 1 down at (17, 52)
-Mouse button 1 up at (17, 52)
-Mouse button 1 down at (31, 23)
+loaded image: resources\start-bg.jpg
+resized image: resources\start-bg.jpg
+loaded image: resources\smallfighter.png
+loaded image: resources\smallfighter_broken1.png
+loaded image: resources\smallfighter_broken2.png
+loaded image: resources\rocket-3.png
+loaded image: resources\missile.png
+loaded image: resources\image12.png
+loaded image: resources\plane.png
+loaded image: resources\hearts.png
+loaded audio: resources\mythica.ogg
+Start scene initialized
+played audio (bgm)
+Key with keycode 67 up
+Key with keycode 84 down
+Key with keycode 83 down
+Key with keycode 82 down
+Key with keycode 83 up
+Key with keycode 84 up
+Key with keycode 82 up
+Key with keycode 82 down
+Key with keycode 84 down
+Key with keycode 82 up
+Key with keycode 83 down
+Key with keycode 84 up
+Key with keycode 83 up
+Key with keycode 84 down
+Key with keycode 84 up
+Dead scene created
+Change scene from Start to Dead
+stop audio (bgm)
+Start scene destroyed
+loaded image: resources\dead-bg.jpg
+resized image: resources\dead-bg.jpg
+Key with keycode 82 down
+Key with keycode 82 up
+Key with keycode 67 down
 Menu scene created
-Change scene from Start to Menu
+Change scene from Dead to Menu
 loaded image: resources\main-bg.jpg
 resized image: resources\main-bg.jpg
 loaded image: resources\settings.png
@@ -141,24 +172,69 @@ loaded image: resources\settings2.png
 loaded audio: resources\S31-Night Prowler.ogg
 played audio (bgm)
 Menu scene initialized
-Mouse button 1 up at (31, 23)
-Mouse button 2 down at (318, 117)
-Mouse button 2 up at (318, 117)
-Mouse button 1 down at (262, 90)
-Mouse button 1 up at (262, 89)
-Mouse button 1 down at (789, 33)
-Settings scene created
+Key with keycode 67 up
+Key with keycode 67 down
+Start scene created
 Change scene from Menu to Start
 stop audio (bgm)
 Menu scene destroyed
-loaded image: resources\settings_backgroud.jpg
-resized image: resources\settings_backgroud.jpg
-loaded image: resources\back.png
-loaded image: resources\back2.png
-Mouse button 1 up at (789, 33)
-Mouse button 1 down at (32, 31)
+loaded image: resources\start-bg.jpg
+resized image: resources\start-bg.jpg
+loaded image: resources\smallfighter.png
+loaded image: resources\smallfighter_broken1.png
+loaded image: resources\smallfighter_broken2.png
+loaded image: resources\rocket-3.png
+loaded image: resources\missile.png
+loaded image: resources\image12.png
+loaded image: resources\plane.png
+loaded image: resources\hearts.png
+loaded audio: resources\mythica.ogg
+Start scene initialized
+played audio (bgm)
+Key with keycode 67 up
+Key with keycode 85 down
+Key with keycode 82 down
+Key with keycode 85 up
+Key with keycode 83 down
+Key with keycode 82 up
+Key with keycode 83 up
+Key with keycode 84 down
+Key with keycode 82 down
+Key with keycode 84 up
+Key with keycode 82 up
+Key with keycode 82 down
+Key with keycode 84 down
+Key with keycode 82 up
+Key with keycode 84 up
+Key with keycode 84 down
+Key with keycode 83 down
+Key with keycode 84 up
+Key with keycode 83 up
+Key with keycode 83 down
+Key with keycode 83 up
+Key with keycode 84 down
+Key with keycode 84 up
+Key with keycode 82 down
+Key with keycode 85 down
+Key with keycode 82 up
+Key with keycode 83 down
+Key with keycode 85 up
+Key with keycode 83 up
+Key with keycode 82 down
+Key with keycode 82 up
+Key with keycode 84 down
+Dead scene created
+Change scene from Start to Dead
+stop audio (bgm)
+Start scene destroyed
+loaded image: resources\dead-bg.jpg
+resized image: resources\dead-bg.jpg
+Key with keycode 84 up
+Key with keycode 82 down
+Key with keycode 82 up
+Key with keycode 67 down
 Menu scene created
-Change scene from Start to Menu
+Change scene from Dead to Menu
 loaded image: resources\main-bg.jpg
 resized image: resources\main-bg.jpg
 loaded image: resources\settings.png
@@ -166,8 +242,115 @@ loaded image: resources\settings2.png
 loaded audio: resources\S31-Night Prowler.ogg
 played audio (bgm)
 Menu scene initialized
-Mouse button 1 up at (32, 31)
+Key with keycode 67 up
+Key with keycode 84 down
+Key with keycode 82 down
+Key with keycode 83 down
+Key with keycode 82 up
+Key with keycode 84 up
+Key with keycode 83 up
+Key with keycode 67 down
+Start scene created
+Change scene from Menu to Start
+stop audio (bgm)
+Menu scene destroyed
+loaded image: resources\start-bg.jpg
+resized image: resources\start-bg.jpg
+loaded image: resources\smallfighter.png
+loaded image: resources\smallfighter_broken1.png
+loaded image: resources\smallfighter_broken2.png
+loaded image: resources\rocket-3.png
+loaded image: resources\missile.png
+loaded image: resources\image12.png
+loaded image: resources\plane.png
+loaded image: resources\hearts.png
+loaded audio: resources\mythica.ogg
+Start scene initialized
+played audio (bgm)
+Key with keycode 67 up
+Key with keycode 82 down
+Key with keycode 84 down
+Key with keycode 83 down
+Key with keycode 82 up
+Key with keycode 83 up
+Key with keycode 84 up
+Key with keycode 82 down
+Key with keycode 84 down
+Key with keycode 84 up
+Key with keycode 82 up
+Key with keycode 83 down
+Key with keycode 83 up
+Key with keycode 85 down
+Key with keycode 82 down
+Key with keycode 85 up
+Key with keycode 83 down
+Key with keycode 82 up
+Key with keycode 84 down
+Key with keycode 83 up
+Key with keycode 83 down
+Key with keycode 83 up
+Key with keycode 84 up
+Key with keycode 83 down
+Dead scene created
+Change scene from Start to Dead
+stop audio (bgm)
+Start scene destroyed
+loaded image: resources\dead-bg.jpg
+resized image: resources\dead-bg.jpg
+Key with keycode 83 up
+Key with keycode 84 down
+Key with keycode 84 up
+Key with keycode 67 down
+Menu scene created
+Change scene from Dead to Menu
+loaded image: resources\main-bg.jpg
+resized image: resources\main-bg.jpg
+loaded image: resources\settings.png
+loaded image: resources\settings2.png
+loaded audio: resources\S31-Night Prowler.ogg
+played audio (bgm)
+Menu scene initialized
+Key with keycode 67 up
+Key with keycode 67 down
+Start scene created
+Change scene from Menu to Start
+stop audio (bgm)
+Menu scene destroyed
+loaded image: resources\start-bg.jpg
+resized image: resources\start-bg.jpg
+loaded image: resources\smallfighter.png
+loaded image: resources\smallfighter_broken1.png
+loaded image: resources\smallfighter_broken2.png
+loaded image: resources\rocket-3.png
+loaded image: resources\missile.png
+loaded image: resources\image12.png
+loaded image: resources\plane.png
+loaded image: resources\hearts.png
+loaded audio: resources\mythica.ogg
+Start scene initialized
+played audio (bgm)
+Key with keycode 67 up
+Key with keycode 83 down
+Key with keycode 84 down
+Key with keycode 83 up
+Key with keycode 82 down
+Key with keycode 84 up
+Key with keycode 82 up
+Key with keycode 84 down
+Key with keycode 84 up
+Key with keycode 83 down
+Key with keycode 83 up
+Key with keycode 85 down
+Key with keycode 82 down
+Key with keycode 85 up
+Key with keycode 84 down
+Key with keycode 82 up
+Dead scene created
+Change scene from Start to Dead
+stop audio (bgm)
+Start scene destroyed
+loaded image: resources\dead-bg.jpg
+resized image: resources\dead-bg.jpg
+Key with keycode 84 up
 Window close button clicked
 Game end
-stop audio (bgm)
-Menu scene destroyed
