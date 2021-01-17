@@ -160,12 +160,23 @@
     <ClInclude Include="Final Code (advanced)\utility.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\1P.png" />
+    <Image Include="resources\2P.png" />
+    <Image Include="resources\back.png" />
+    <Image Include="resources\back2.png" />
+    <Image Include="resources\box_blue.png" />
+    <Image Include="resources\box_red.png" />
+    <Image Include="resources\bullet.png" />
+    <Image Include="resources\bullet2.png" />
     <Image Include="resources\crosshair052.png" />
     <Image Include="resources\crosshair146.png" />
+    <Image Include="resources\dead-bg.jpg" />
     <Image Include="resources\hearts.png" />
     <Image Include="resources\image12.png" />
     <Image Include="resources\main-bg.jpg" />
+    <Image Include="resources\missile.png" />
     <Image Include="resources\plane.png" />
+    <Image Include="resources\plane2.png" />
     <Image Include="resources\rocket-1.png" />
     <Image Include="resources\rocket-2.png" />
     <Image Include="resources\rocket-3.png" />
@@ -173,7 +184,10 @@
     <Image Include="resources\settings.png" />
     <Image Include="resources\settings2.png" />
     <Image Include="resources\settings_backgroud.jpg" />
+    <Image Include="resources\smallfighter.png" />
     <Image Include="resources\smallfighter0006.png" />
+    <Image Include="resources\smallfighter_broken1.png" />
+    <Image Include="resources\smallfighter_broken2.png" />
     <Image Include="resources\start-bg.jpg" />
     <Image Include="resources\tank-1.png" />
     <Image Include="resources\towerDefense_tile252.png" />
@@ -183,6 +197,14 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\pirulen.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\click.mp3" />
+    <Media Include="resources\explosion.mp3" />
+    <Media Include="resources\gun.mp3" />
+    <Media Include="resources\laser.mp3" />
+    <Media Include="resources\metal.mp3" />
+    <Media Include="resources\switch.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

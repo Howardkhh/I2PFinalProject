@@ -133,10 +133,72 @@
     <Image Include="resources\hearts.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="resources\1P.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\2P.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\back.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\back2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\box_blue.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\box_red.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\bullet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\bullet2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\dead-bg.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\missile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\plane2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\smallfighter.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\smallfighter_broken1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\smallfighter_broken2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\pirulen.ttf">
       <Filter>Resource Files</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\click.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="resources\explosion.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="resources\gun.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="resources\laser.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="resources\metal.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="resources\switch.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

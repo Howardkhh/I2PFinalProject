@@ -713,7 +713,7 @@ static void update(void) {
                         plane_bullets[i][j].obj.vx = plane[i].obj.vx;
                         plane_bullets[i][j].obj.vy = -10 * (2 - i) + plane[i].obj.vy;
                         if (i == 0)
-                            play_audio(sound_gun, 0.3);
+                            play_audio(sound_gun, 0.2);
                         else if (i == 1)
                             play_audio(sound_laser, 1);
                         break;
@@ -734,7 +734,7 @@ static void update(void) {
                     plane_bullets[selected_plane][j].obj.vx = plane[selected_plane].obj.vx;
                     plane_bullets[selected_plane][j].obj.vy = -10 * (2 - selected_plane) + plane[selected_plane].obj.vy;
                     if (selected_plane == 0)
-                        play_audio(sound_gun, 0.3);
+                        play_audio(sound_gun, 0.2);
                     else if (selected_plane == 1)
                         play_audio(sound_laser, 1);
                     break;
