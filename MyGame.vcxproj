@@ -196,17 +196,20 @@
     <Image Include="resources\ufo-1.png" />
     <Image Include="resources\ufo-2.png" />
     <Image Include="resources\ufo-3.png" />
+    <Image Include="resources\win-bg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\pirulen.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\click.mp3" />
+    <Media Include="resources\dead_music.mp3" />
     <Media Include="resources\explosion.mp3" />
     <Media Include="resources\gun.mp3" />
     <Media Include="resources\laser.mp3" />
     <Media Include="resources\metal.mp3" />
     <Media Include="resources\switch.mp3" />
+    <Media Include="resources\win_music.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

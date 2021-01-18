@@ -181,6 +181,9 @@
     <Image Include="resources\smallfighter_broken2.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="resources\win-bg.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\pirulen.ttf">
@@ -204,6 +207,12 @@
       <Filter>Resource Files</Filter>
     </Media>
     <Media Include="resources\switch.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="resources\dead_music.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="resources\win_music.mp3">
       <Filter>Resource Files</Filter>
     </Media>
   </ItemGroup>

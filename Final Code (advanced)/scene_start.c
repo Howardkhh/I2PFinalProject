@@ -96,7 +96,7 @@ static Enemy small_enemies[MAX_SMALL_ENEMY];
 static Enemy middle_enemies[MAX_MIDDLE_ENEMY];
 static Bullet plane_bullets[2][MAX_PLANE_BULLET];
 static Bullet middle_bullets[MAX_MIDDLE_BULLET];
-static const float MAX_COOLDOWN[2] = { 0.2, 0.5 };
+static const float MAX_COOLDOWN[2] = { 0.25, 0.5 };
 static double last_shoot_timestamp[2];
 static double last_middle_shoot_timestamp[MAX_MIDDLE_ENEMY];
 static double middle_bullet_max_turn_angle = 0.4 * PI / 60;
@@ -437,7 +437,7 @@ void move_object(MovableObject* obj, int* restrict_in_LRUD) {
 
 static void update(void) {
     //win?
-    if (score >= 100)
+    if (score >= 500)
         game_change_scene(scene_win_create());
     //collision detect
     int i, j, k;
@@ -618,12 +618,12 @@ static void update(void) {
         }
         int closest = 0;
         if (multiplayer) {
-            float closest_distant = sqrt(SCREEN_W * SCREEN_W + SCREEN_H * SCREEN_H) + 100;
+            float closest_distant = SCREEN_W * SCREEN_W + SCREEN_H * SCREEN_H + 100;
             float distant;
             for (j = 0; j < 2; j++) {
                 if (plane[j].obj.hidden)
                     continue;
-                distant = sqrt(pow(plane[j].obj.x - middle_enemies[i].obj.x, 2) + pow(plane[j].obj.y - middle_enemies[i].obj.y, 2));
+                distant = pow(plane[j].obj.x - middle_enemies[i].obj.x, 2) + pow(plane[j].obj.y - middle_enemies[i].obj.y, 2);
                 if (distant < closest_distant) {
                     closest = j;
                     closest_distant = distant;
@@ -668,12 +668,12 @@ static void update(void) {
 
         int closest = 0;
         if (multiplayer) {
-            float closest_distant = sqrt(SCREEN_W * SCREEN_W + SCREEN_H * SCREEN_H) + 100;
+            float closest_distant = SCREEN_W * SCREEN_W + SCREEN_H * SCREEN_H + 100;
             float distant;
             for (j = 0; j < 2; j++) {
                 if (plane[j].obj.hidden)
                     continue;
-                distant = sqrt(pow(plane[j].obj.x - middle_enemies[i].obj.x, 2) + pow(plane[j].obj.y - middle_enemies[i].obj.y, 2));
+                distant = pow(plane[j].obj.x - middle_enemies[i].obj.x, 2) + pow(plane[j].obj.y - middle_enemies[i].obj.y, 2);
                 if (distant < closest_distant) {
                     closest = j;
                     closest_distant = distant;
