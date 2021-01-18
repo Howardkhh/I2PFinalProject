@@ -17,42 +17,33 @@ played audio (bgm)
 Menu scene initialized
 Game initialized
 Game start event loop
-Start scene created
+Settings scene created
 Change scene from Menu to Start
-stop audio (bgm)
 Menu scene destroyed
-loaded image: resources\start-bg.jpg
-resized image: resources\start-bg.jpg
-loaded image: resources\smallfighter.png
-loaded image: resources\smallfighter_broken1.png
-loaded image: resources\smallfighter_broken2.png
-loaded image: resources\rocket-3.png
-loaded image: resources\missile.png
-loaded image: resources\bullet.png
-loaded image: resources\bullet2.png
+loaded image: resources\settings_backgroud.jpg
+resized image: resources\settings_backgroud.jpg
+loaded image: resources\back.png
+loaded image: resources\back2.png
 loaded image: resources\plane.png
+resized image: resources\plane.png
 loaded image: resources\plane2.png
-loaded image: resources\hearts.png
-loaded audio: resources\mythica.ogg
-Start scene initialized
-played audio (bgm)
-Dead scene created
-Change scene from Start to Dead
-stop audio (bgm)
-Start scene destroyed
-loaded image: resources\dead-bg.jpg
-resized image: resources\dead-bg.jpg
-loaded audio: resources\dead_music.mp3
-played audio (bgm)
+resized image: resources\plane2.png
+loaded image: resources\bullet.png
+resized image: resources\bullet.png
+loaded image: resources\bullet2.png
+resized image: resources\bullet2.png
+loaded image: resources\box_blue.png
+loaded image: resources\box_red.png
+loaded image: resources\1P.png
+loaded image: resources\2P.png
+loaded audio: resources\click.mp3
+loaded audio: resources\switch.mp3
 Menu scene created
-Change scene from Dead to Menu
-stop audio (bgm)
+Change scene from Start to Menu
 loaded image: resources\main-bg.jpg
 resized image: resources\main-bg.jpg
 loaded image: resources\settings.png
 loaded image: resources\settings2.png
-loaded audio: resources\S31-Night Prowler.ogg
-played audio (bgm)
 Menu scene initialized
 Start scene created
 Change scene from Menu to Start
@@ -69,6 +60,10 @@ loaded image: resources\bullet.png
 loaded image: resources\bullet2.png
 loaded image: resources\plane.png
 loaded image: resources\plane2.png
+loaded image: resources\plane.png
+resized image: resources\plane.png
+loaded image: resources\plane2.png
+resized image: resources\plane2.png
 loaded image: resources\hearts.png
 loaded audio: resources\mythica.ogg
 Start scene initialized
@@ -77,8 +72,8 @@ Win scene created
 Change scene from Start to Win
 stop audio (bgm)
 Start scene destroyed
-loaded image: resources\dead-bg.jpg
-resized image: resources\dead-bg.jpg
+loaded image: resources\win-bg.jpg
+resized image: resources\win-bg.jpg
 loaded audio: resources\win_music.mp3
 played audio (bgm)
 Menu scene created
@@ -118,6 +113,226 @@ loaded image: resources\main-bg.jpg
 resized image: resources\main-bg.jpg
 loaded image: resources\settings.png
 loaded image: resources\settings2.png
+Menu scene initialized
+Start scene created
+Change scene from Menu to Start
+stop audio (bgm)
+Menu scene destroyed
+loaded image: resources\start-bg.jpg
+resized image: resources\start-bg.jpg
+loaded image: resources\smallfighter.png
+loaded image: resources\smallfighter_broken1.png
+loaded image: resources\smallfighter_broken2.png
+loaded image: resources\rocket-3.png
+loaded image: resources\missile.png
+loaded image: resources\bullet.png
+loaded image: resources\bullet2.png
+loaded image: resources\plane.png
+loaded image: resources\plane2.png
+loaded image: resources\plane.png
+resized image: resources\plane.png
+loaded image: resources\plane2.png
+resized image: resources\plane2.png
+loaded image: resources\hearts.png
+loaded audio: resources\mythica.ogg
+Start scene initialized
+played audio (bgm)
+Win scene created
+Change scene from Start to Win
+stop audio (bgm)
+Start scene destroyed
+loaded image: resources\win-bg.jpg
+resized image: resources\win-bg.jpg
+loaded audio: resources\win_music.mp3
+played audio (bgm)
+Menu scene created
+Change scene from Win to Menu
+stop audio (bgm)
+loaded image: resources\main-bg.jpg
+resized image: resources\main-bg.jpg
+loaded image: resources\settings.png
+loaded image: resources\settings2.png
+loaded audio: resources\S31-Night Prowler.ogg
+played audio (bgm)
+Menu scene initialized
+Settings scene created
+Change scene from Menu to Start
+Menu scene destroyed
+loaded image: resources\settings_backgroud.jpg
+resized image: resources\settings_backgroud.jpg
+loaded image: resources\back.png
+loaded image: resources\back2.png
+loaded image: resources\plane.png
+resized image: resources\plane.png
+loaded image: resources\plane2.png
+resized image: resources\plane2.png
+loaded image: resources\bullet.png
+resized image: resources\bullet.png
+loaded image: resources\bullet2.png
+resized image: resources\bullet2.png
+loaded image: resources\box_blue.png
+loaded image: resources\box_red.png
+loaded image: resources\1P.png
+loaded image: resources\2P.png
+loaded audio: resources\click.mp3
+loaded audio: resources\switch.mp3
+Menu scene created
+Change scene from Start to Menu
+loaded image: resources\main-bg.jpg
+resized image: resources\main-bg.jpg
+loaded image: resources\settings.png
+loaded image: resources\settings2.png
+Menu scene initialized
+Start scene created
+Change scene from Menu to Start
+stop audio (bgm)
+Menu scene destroyed
+loaded image: resources\start-bg.jpg
+resized image: resources\start-bg.jpg
+loaded image: resources\smallfighter.png
+loaded image: resources\smallfighter_broken1.png
+loaded image: resources\smallfighter_broken2.png
+loaded image: resources\rocket-3.png
+loaded image: resources\missile.png
+loaded image: resources\bullet.png
+loaded image: resources\bullet2.png
+loaded image: resources\plane.png
+loaded image: resources\plane2.png
+loaded image: resources\plane.png
+resized image: resources\plane.png
+loaded image: resources\plane2.png
+resized image: resources\plane2.png
+loaded image: resources\hearts.png
+loaded audio: resources\mythica.ogg
+Start scene initialized
+played audio (bgm)
+Win scene created
+Change scene from Start to Win
+stop audio (bgm)
+Start scene destroyed
+loaded image: resources\win-bg.jpg
+resized image: resources\win-bg.jpg
+loaded audio: resources\win_music.mp3
+played audio (bgm)
+Menu scene created
+Change scene from Win to Menu
+stop audio (bgm)
+loaded image: resources\main-bg.jpg
+resized image: resources\main-bg.jpg
+loaded image: resources\settings.png
+loaded image: resources\settings2.png
+loaded audio: resources\S31-Night Prowler.ogg
+played audio (bgm)
+Menu scene initialized
+Start scene created
+Change scene from Menu to Start
+stop audio (bgm)
+Menu scene destroyed
+loaded image: resources\start-bg.jpg
+resized image: resources\start-bg.jpg
+loaded image: resources\smallfighter.png
+loaded image: resources\smallfighter_broken1.png
+loaded image: resources\smallfighter_broken2.png
+loaded image: resources\rocket-3.png
+loaded image: resources\missile.png
+loaded image: resources\bullet.png
+loaded image: resources\bullet2.png
+loaded image: resources\plane.png
+loaded image: resources\plane2.png
+loaded image: resources\plane.png
+resized image: resources\plane.png
+loaded image: resources\plane2.png
+resized image: resources\plane2.png
+loaded image: resources\hearts.png
+loaded audio: resources\mythica.ogg
+Start scene initialized
+played audio (bgm)
+Win scene created
+Change scene from Start to Win
+stop audio (bgm)
+Start scene destroyed
+loaded image: resources\win-bg.jpg
+resized image: resources\win-bg.jpg
+loaded audio: resources\win_music.mp3
+played audio (bgm)
+Menu scene created
+Change scene from Win to Menu
+stop audio (bgm)
+loaded image: resources\main-bg.jpg
+resized image: resources\main-bg.jpg
+loaded image: resources\settings.png
+loaded image: resources\settings2.png
+loaded audio: resources\S31-Night Prowler.ogg
+played audio (bgm)
+Menu scene initialized
+Settings scene created
+Change scene from Menu to Start
+Menu scene destroyed
+loaded image: resources\settings_backgroud.jpg
+resized image: resources\settings_backgroud.jpg
+loaded image: resources\back.png
+loaded image: resources\back2.png
+loaded image: resources\plane.png
+resized image: resources\plane.png
+loaded image: resources\plane2.png
+resized image: resources\plane2.png
+loaded image: resources\bullet.png
+resized image: resources\bullet.png
+loaded image: resources\bullet2.png
+resized image: resources\bullet2.png
+loaded image: resources\box_blue.png
+loaded image: resources\box_red.png
+loaded image: resources\1P.png
+loaded image: resources\2P.png
+loaded audio: resources\click.mp3
+loaded audio: resources\switch.mp3
+Menu scene created
+Change scene from Start to Menu
+loaded image: resources\main-bg.jpg
+resized image: resources\main-bg.jpg
+loaded image: resources\settings.png
+loaded image: resources\settings2.png
+Menu scene initialized
+Start scene created
+Change scene from Menu to Start
+stop audio (bgm)
+Menu scene destroyed
+loaded image: resources\start-bg.jpg
+resized image: resources\start-bg.jpg
+loaded image: resources\smallfighter.png
+loaded image: resources\smallfighter_broken1.png
+loaded image: resources\smallfighter_broken2.png
+loaded image: resources\rocket-3.png
+loaded image: resources\missile.png
+loaded image: resources\bullet.png
+loaded image: resources\bullet2.png
+loaded image: resources\plane.png
+loaded image: resources\plane2.png
+loaded image: resources\plane.png
+resized image: resources\plane.png
+loaded image: resources\plane2.png
+resized image: resources\plane2.png
+loaded image: resources\hearts.png
+loaded audio: resources\mythica.ogg
+Start scene initialized
+played audio (bgm)
+Win scene created
+Change scene from Start to Win
+stop audio (bgm)
+Start scene destroyed
+loaded image: resources\win-bg.jpg
+resized image: resources\win-bg.jpg
+loaded audio: resources\win_music.mp3
+played audio (bgm)
+Menu scene created
+Change scene from Win to Menu
+stop audio (bgm)
+loaded image: resources\main-bg.jpg
+resized image: resources\main-bg.jpg
+loaded image: resources\settings.png
+loaded image: resources\settings2.png
+loaded audio: resources\S31-Night Prowler.ogg
+played audio (bgm)
 Menu scene initialized
 Game end
 stop audio (bgm)

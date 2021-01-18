@@ -15,6 +15,8 @@
 static ALLEGRO_BITMAP* img_background;
 static ALLEGRO_BITMAP* img_plane1;
 static ALLEGRO_BITMAP* img_plane2;
+static ALLEGRO_BITMAP* img_avatar1;
+static ALLEGRO_BITMAP* img_avatar2;
 static ALLEGRO_BITMAP* img_small_fighter;
 static ALLEGRO_BITMAP* img_small_fighter_broken1;
 static ALLEGRO_BITMAP* img_small_fighter_broken2;
@@ -162,6 +164,8 @@ static void init_image() {
     img_plane_bullet2 = load_bitmap("resources\\bullet2.png");
     img_plane1 = load_bitmap("resources\\plane.png");
     img_plane2 = load_bitmap("resources\\plane2.png");
+    img_avatar1 = load_bitmap_resized("resources\\plane.png", 30, 30);
+    img_avatar2 = load_bitmap_resized("resources\\plane2.png", 30, 30);
     img_heart = load_bitmap("resources\\hearts.png");
 }
 
@@ -780,8 +784,10 @@ static void draw(void) {
     int i, j;
     al_draw_bitmap(img_background, 0, 0, 0);
     if (multiplayer) {
-        for (i = 0; i < plane[0].health; i++) 
-            al_draw_bitmap(img_heart, SCREEN_W - 30 - i * 30, 10, 0);
+        al_draw_bitmap(img_avatar1, SCREEN_W - 40 - plane[0].max_health * 30, 15, 0);
+        al_draw_bitmap(img_avatar2, SCREEN_W - 40 - plane[0].max_health * 30, 55, 0);
+        for (i = 0; i < plane[0].health; i++)
+            al_draw_bitmap(img_heart, SCREEN_W - 30 - i * 30, 20, 0);
         for (i = 0; i < plane[1].health; i++)
             al_draw_bitmap(img_heart, SCREEN_W - 30 - i * 30, 60, 0);
     }

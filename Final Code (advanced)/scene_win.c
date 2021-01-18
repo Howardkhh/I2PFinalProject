@@ -16,7 +16,7 @@ float now;
 
 static void init(void) {
     now = al_get_time();
-    img_backgroud = load_bitmap_resized("resources\\dead-bg.jpg", SCREEN_W, SCREEN_H);
+    img_backgroud = load_bitmap_resized("resources\\win-bg.jpg", SCREEN_W, SCREEN_H);
     bgm = load_audio("resources\\win_music.mp3");
     bgm_id = play_bgm(bgm, 1);
     alpha = 0;
