@@ -147,6 +147,7 @@
     <ClCompile Include="Final Code (advanced)\scene_menu.c" />
     <ClCompile Include="Final Code (advanced)\scene_settings.c" />
     <ClCompile Include="Final Code (advanced)\scene_start.c" />
+    <ClCompile Include="Final Code (advanced)\scene_win.c" />
     <ClCompile Include="Final Code (advanced)\shared.c" />
     <ClCompile Include="Final Code (advanced)\utility.c" />
   </ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="Final Code (advanced)\scene_menu.h" />
     <ClInclude Include="Final Code (advanced)\scene_settings.h" />
     <ClInclude Include="Final Code (advanced)\scene_start.h" />
+    <ClInclude Include="Final Code (advanced)\scene_win.h" />
     <ClInclude Include="Final Code (advanced)\shared.h" />
     <ClInclude Include="Final Code (advanced)\utility.h" />
   </ItemGroup>

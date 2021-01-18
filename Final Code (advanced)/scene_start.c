@@ -6,6 +6,7 @@
 #include "utility.h"
 #include "scene_menu.h"
 #include "scene_dead.h"
+#include "scene_win.h"
 #include "shared.h"
 #include <math.h>
 
@@ -269,8 +270,6 @@ static void init_plane() {
 }
 
 static void init_sound() {
-    al_install_audio();
-    al_reserve_samples(100);
     if (sound_laser == NULL)
         sound_laser = al_load_sample("resources\\laser.mp3");
     if (sound_gun == NULL)
@@ -433,6 +432,9 @@ void move_object(MovableObject* obj, int* restrict_in_LRUD) {
 
 
 static void update(void) {
+    //win?
+    if (score >= 100)
+        game_change_scene(scene_win_create());
     //collision detect
     int i, j, k;
 

@@ -38,8 +38,6 @@ static void destroy(void);
 static void on_key_down(int keycode);
 
 static void init(void) {
-    al_install_audio();
-    al_reserve_samples(100);
     img_background = load_bitmap_resized("resources\\main-bg.jpg", SCREEN_W, SCREEN_H);
     img_settings = load_bitmap("resources\\settings.png");
     img_settings2 = load_bitmap("resources\\settings2.png");

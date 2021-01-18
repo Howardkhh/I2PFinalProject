@@ -1,3 +1,4 @@
+#include <allegro5/allegro_primitives.h>
 #include "scene_settings.h"
 #include "scene_menu.h"
 #include "utility.h"
@@ -23,8 +24,6 @@ int multiplayer;
 int cont_bgm;
 
 static void init(void) {
-    al_install_audio();
-    al_reserve_samples(100);
     img_backgroud = load_bitmap_resized("resources\\settings_backgroud.jpg", SCREEN_W, SCREEN_H);
     img_back1 = load_bitmap("resources\\back.png");
     img_back2 = load_bitmap("resources\\back2.png");
@@ -71,6 +70,13 @@ static void draw(void) {
         al_draw_bitmap(img_box_red, 100, 150, 0);
     if (pnt_in_rect(mouse_x, mouse_y, 440, 170, 220, 280))
         al_draw_bitmap(img_box_red, 400, 150, 0);
+
+    al_draw_filled_rounded_rectangle(110, 485, 390, 535, 10, 10, al_map_rgb(0, 0, 0));
+    al_draw_filled_rounded_rectangle(410, 485, 690, 535, 10, 10, al_map_rgb(0, 0, 0));
+    al_draw_rounded_rectangle(110, 485, 390, 535, 10, 10, al_map_rgb(255, 255, 255), 5);
+    al_draw_rounded_rectangle(410, 485, 690, 535, 10, 10, al_map_rgb(255, 255, 255), 5);
+    al_draw_text(font_pirulen_18, al_map_rgb(255, 255, 255), 250, 500, ALLEGRO_ALIGN_CENTER, "Dark Obliterator");
+    al_draw_text(font_pirulen_18, al_map_rgb(255, 255, 255), 550, 500, ALLEGRO_ALIGN_CENTER, "Deadly Crimson");
 }
 
 static void destroy(void) {

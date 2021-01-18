@@ -15,7 +15,7 @@
 const int FPS = 60;
 const int SCREEN_W = 800;
 const int SCREEN_H = 600;
-const int RESERVE_SAMPLES = 10;
+const int RESERVE_SAMPLES = 100;
 Scene active_scene;
 bool key_state[ALLEGRO_KEY_MAX];
 bool *mouse_state;

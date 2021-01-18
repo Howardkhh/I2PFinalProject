@@ -6,6 +6,7 @@
 extern ALLEGRO_FONT* font_pirulen_100;
 extern ALLEGRO_FONT* font_pirulen_32;
 extern ALLEGRO_FONT* font_pirulen_24;
+extern ALLEGRO_FONT* font_pirulen_18;
 
 extern int score;
 extern float start_time;
